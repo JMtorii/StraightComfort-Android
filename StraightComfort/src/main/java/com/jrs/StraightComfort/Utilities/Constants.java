@@ -5,4 +5,5 @@ package com.jrs.StraightComfort.Utilities;
  */
 public class Constants {
     public static final String TEST_CONSTANT = "ALWAYS USE THIS FORMAT";
+
 }
