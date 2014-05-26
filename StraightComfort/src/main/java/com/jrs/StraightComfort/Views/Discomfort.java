@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.jrs.StraightComfort.R;
+import com.jrs.StraightComfort.Utilities.Bodypart;
 
 import java.util.ArrayList;
 
@@ -27,7 +28,7 @@ public class Discomfort extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.discomfort);
         ListView partsList = (ListView) findViewById(R.id.lvAnalyze);
-        ArrayList<String>  bodypartList = new ArrayList<String>();
+        ArrayList<Bodypart>  bodypartList = new ArrayList<Bodypart>();
         ImageButton btnAnalyze = (ImageButton) findViewById(R.id.btnAnalyze);
 
 
@@ -35,13 +36,13 @@ public class Discomfort extends Activity{
         //cbparams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
         //RelativeLayout.LayoutParams tvparams = new RelativeLayout.LayoutParams(20,RelativeLayout.LayoutPara,ms.MATCH_PARENT);
         //tvparams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-        String[] bodyParts = new String[] { "Nose", "Eyes", "Neck","Crotch","Chair", "Desk", "Monitor","Crotch","Chair", "Desk", "Monitor","Crotch","Chair", "Desk", "Monitor","Crotch" };
+        Bodypart[] bodyParts = new Bodypart[] { new Bodypart("Nose","Eyes","Mouth")};
         for (int i = 0; i< bodyParts.length;i++)
         {
             bodypartList.add(i,bodyParts[i]);
         }
 
-        CustomAdapter listAdapter = new CustomAdapter(this,R.layout.bodypart_check,bodypartList);
+        final CustomAdapter listAdapter = new CustomAdapter(this,R.layout.bodypart_check,bodypartList);
 
         partsList.setAdapter(listAdapter);
 
@@ -49,19 +50,20 @@ public class Discomfort extends Activity{
         btnAnalyze.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ArrayList<Bodypart> selectedParts = listAdapter.bodypartList;
 
             }
         });
 
     }
-    private class CustomAdapter extends ArrayAdapter<String> {
+    private class CustomAdapter extends ArrayAdapter<Bodypart> {
 
-        private ArrayList<String> bodypartList;
+        private ArrayList<Bodypart> bodypartList;
 
         public CustomAdapter(Context context, int textViewResourceId,
-                               ArrayList<String> bodypartList) {
+                               ArrayList<Bodypart> bodypartList) {
             super(context, textViewResourceId, bodypartList);
-            this.bodypartList = new ArrayList<String>();
+            this.bodypartList = new ArrayList<Bodypart>();
             this.bodypartList.addAll(bodypartList);
         }
 
@@ -88,7 +90,7 @@ public class Discomfort extends Activity{
                 holder.BPcheckBox.setOnClickListener( new View.OnClickListener() {
                     public void onClick(View v) {
                         CheckBox cb = (CheckBox) v ;
-
+                        cb.getTag();
                     }
                 });
             }
@@ -96,8 +98,8 @@ public class Discomfort extends Activity{
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            String bodyPart = bodypartList.get(position);
-            holder.BPname.setText(bodyPart);
+            Bodypart bodyPart = bodypartList.get(position);
+            holder.BPname.setText(bodyPart.getName());
             holder.BPname.setTextSize(50);
 
 
