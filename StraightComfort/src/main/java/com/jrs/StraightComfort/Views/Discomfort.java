@@ -36,10 +36,10 @@ public class Discomfort extends Activity{
         //cbparams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
         //RelativeLayout.LayoutParams tvparams = new RelativeLayout.LayoutParams(20,RelativeLayout.LayoutPara,ms.MATCH_PARENT);
         //tvparams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-        Bodypart[] bodyParts = new Bodypart[] { new Bodypart("Nose","Eyes","Mouth")};
+        String[] bodyParts = new String[] {"Nose","Eyes","Mouth","Crotch","Nose","Eyes","Mouth","Crotch","Nose","Eyes","Mouth","Crotch"};
         for (int i = 0; i< bodyParts.length;i++)
         {
-            bodypartList.add(i,bodyParts[i]);
+            bodypartList.add(new Bodypart(bodyParts[i]));
         }
 
         final CustomAdapter listAdapter = new CustomAdapter(this,R.layout.bodypart_check,bodypartList);
@@ -90,7 +90,7 @@ public class Discomfort extends Activity{
                 holder.BPcheckBox.setOnClickListener( new View.OnClickListener() {
                     public void onClick(View v) {
                         CheckBox cb = (CheckBox) v ;
-                        cb.getTag();
+
                     }
                 });
             }
@@ -100,6 +100,7 @@ public class Discomfort extends Activity{
 
             Bodypart bodyPart = bodypartList.get(position);
             holder.BPname.setText(bodyPart.getName());
+            holder.BPname.setTag(bodyPart);
             holder.BPname.setTextSize(50);
 
 
