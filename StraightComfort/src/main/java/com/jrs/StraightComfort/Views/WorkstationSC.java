@@ -2,6 +2,7 @@ package com.jrs.StraightComfort.Views;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,8 +72,11 @@ public class WorkstationSC extends Activity {
 
                 holder.SCname.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
+                        Intent mIntent = new Intent(getApplicationContext(),FullWorkStation.class);
                         Button mBtnName = (Button) v;
                         Toast.makeText(getApplicationContext(),mBtnName.getText(),Toast.LENGTH_LONG).show();
+                        mIntent.putExtra("filter",mBtnName.getText());
+                        startActivity(mIntent);
                     }
                 });
             }

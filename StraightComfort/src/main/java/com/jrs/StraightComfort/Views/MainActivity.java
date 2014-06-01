@@ -30,7 +30,9 @@ public class MainActivity extends Activity {
         FullSetupBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 nextScreen = new Intent(getApplicationContext(),FullWorkStation.class);
+                nextScreen.putExtra("filter","all");
                 startActivity(nextScreen);
+
 
             }
         })  ;
