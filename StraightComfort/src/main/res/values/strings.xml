@@ -4,7 +4,7 @@
     <string name="app_name">Straight Comfort</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
+    <string name="button1">Full Workstation Setup</string>
     <string name="main_screen">This is a test</string>
 
 </resources>
