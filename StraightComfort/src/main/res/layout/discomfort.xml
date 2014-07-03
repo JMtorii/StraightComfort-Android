@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="fill_parent">
 
     <ListView
+        android:id="@+id/lvAnalyze"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lvAnalyze"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/tvAnalyze"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/btnAnalyze" />
+        android:layout_alignParentTop="true" />
 
-    <ImageButton
+    <TextView
+        android:id="@+id/tvAnalyze"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:id="@+id/btnAnalyze"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#0F99FF"
+        android:text="@string/tv_analyze"
+        android:gravity="center"
+        android:textSize="25dp"/>
 
 </RelativeLayout>

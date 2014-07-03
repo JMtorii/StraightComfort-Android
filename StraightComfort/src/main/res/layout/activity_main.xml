@@ -1,55 +1,57 @@
 <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#000000"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:background="#FFFFFF"
+   >
 
-    <TextView android:id="@+id/tvTitle"
+    <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:text="@string/app_name"
-        android:textColor="#FFFFFF"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:text="@string/app_name"
+        android:textColor="#000000"
+        android:textSize="40sp" />
 
     <ImageButton
-        android:layout_width="320dp"
-        android:layout_height="100dp"
         android:id="@+id/FullWorkStation"
-        android:layout_row="2"
-        android:layout_column="3"
-        android:layout_above="@+id/WorkStation"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp" />
-
-    <ImageButton
         android:layout_width="320dp"
         android:layout_height="100dp"
-        android:id="@+id/WorkStation"
-        android:layout_row="3"
         android:layout_column="3"
-        android:layout_gravity="center"
+        android:layout_row="2"
+        android:layout_below="@+id/tvTitle"
+        android:layout_alignLeft="@+id/WorkStation"
+        android:layout_alignStart="@+id/WorkStation"
+        android:layout_marginTop="44dp" />
+
+    <ImageButton
+        android:id="@+id/WorkStation"
+        android:layout_width="320dp"
+        android:layout_height="100dp"
         android:layout_above="@+id/Discomfort"
         android:layout_alignLeft="@+id/Discomfort"
         android:layout_alignStart="@+id/Discomfort"
-        android:layout_marginBottom="37dp" />
+        android:layout_column="3"
+        android:layout_gravity="center"
+        android:layout_marginBottom="37dp"
+        android:layout_row="3" />
 
     <ImageButton
+        android:id="@+id/Discomfort"
         android:layout_width="320dp"
         android:layout_height="100dp"
-        android:id="@+id/Discomfort"
-        android:layout_row="4"
-        android:layout_column="3"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="44dp" />
-
+        android:layout_column="3"
+        android:layout_marginBottom="44dp"
+        android:layout_row="4" />
 
 
 </RelativeLayout>
