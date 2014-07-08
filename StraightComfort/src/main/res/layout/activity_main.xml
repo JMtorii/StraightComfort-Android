@@ -1,57 +1,58 @@
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:weightSum="3.0"
    >
 
     <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="@string/app_name"
-        android:textColor="#000000"
-        android:textSize="40sp" />
-
-    <ImageButton
         android:id="@+id/FullWorkStation"
-        android:layout_width="320dp"
+        android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_column="3"
-        android:layout_row="2"
-        android:layout_below="@+id/tvTitle"
-        android:layout_alignLeft="@+id/WorkStation"
-        android:layout_alignStart="@+id/WorkStation"
-        android:layout_marginTop="44dp" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/background"
+        android:textSize="35dp"
+        android:gravity="bottom"
+        android:textColor="#0F99FF"
+        android:text="@string/tv_FullWorkstation"
+        android:textAllCaps="true"
+        android:layout_weight="1.0"/>
 
-    <ImageButton
+    <TextView
         android:id="@+id/WorkStation"
-        android:layout_width="320dp"
-        android:layout_height="100dp"
-        android:layout_above="@+id/Discomfort"
-        android:layout_alignLeft="@+id/Discomfort"
-        android:layout_alignStart="@+id/Discomfort"
-        android:layout_column="3"
-        android:layout_gravity="center"
-        android:layout_marginBottom="37dp"
-        android:layout_row="3" />
+        android:layout_width="match_parent"
+        android:layout_weight="1.0"
+        android:textColor="#0F99FF"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/background"
+        android:textSize="35dp"
+        android:gravity="bottom"
+        android:text="@string/tv_WorkstationSetup"
+        android:textAllCaps="true"
+        android:layout_height="100dp" />
 
-    <ImageButton
+    <TextView
         android:id="@+id/Discomfort"
-        android:layout_width="320dp"
+        android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:background="@drawable/background"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_column="3"
-        android:layout_marginBottom="44dp"
-        android:layout_row="4" />
+        android:text="@string/tv_Discomfort"
+        android:textSize="35dp"
+
+        android:gravity="bottom"
+        android:textColor="#0F99FF"
+        android:textAllCaps="true"
+        android:layout_weight="1.0" />
 
 
-</RelativeLayout>
+</LinearLayout>

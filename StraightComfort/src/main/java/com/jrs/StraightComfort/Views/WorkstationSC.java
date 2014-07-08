@@ -12,6 +12,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 
 import com.jrs.StraightComfort.R;
 import com.jrs.StraightComfort.Utilities.Content;
+import com.jrs.StraightComfort.Utilities.DiscomfortInfo;
 import com.jrs.StraightComfort.Utilities.FilterActivity;
 import com.jrs.StraightComfort.Utilities.FilterSCData;
 import com.jrs.StraightComfort.Utilities.SolutionInfo;
@@ -42,27 +44,45 @@ public class WorkstationSC extends FilterActivity {
 
         setContentView(R.layout.workstation_sc);
 
-        ArrayList<Content> contents = filterscData().getContents();
+        ArrayList<Content> shortCutsList = filterscData().getContents();
 
         ListView partsList = (ListView) findViewById(R.id.lvShortcuts);
-        ArrayList<String[]> shortCutsList = new ArrayList<String[]>();
+        //ArrayList<String[]> shortCutsList = new ArrayList<String[]>();
         try {
-            for (Content content: contents) {
-
-                shortCutsList.add(new String[]{content.getTitle(),content.getIcon()});
-            }
+        //    for (Content content: contents) {
+          //      shortCutsList.add(new String[]{content.getTitle(),content.getIcon()});
+           // }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-   /*     for (int i = 0; i< shortCuts.length;i++)
-        {
-            shortCutsList.add(i,shortCuts[i]);
-        }
-*/
         CustomAdapter listAdapter = new CustomAdapter(this, R.layout.bodypart_check, shortCutsList);
 
-        partsList.setAdapter(listAdapter);
+        partsList.setAdapter(listAdapter); partsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                // When clicked, show a toast with the TextView text
+                Content content = (Content) parent.getItemAtPosition(position);
+                DiscomfortInfo solutions = null;
+                ArrayList<SolutionInfo> solutionInfos = new ArrayList<SolutionInfo>();
+                ArrayList<Integer> pagenumbers = new ArrayList<Integer>();
+
+                String title = content.getTitle().toString();
+
+                pagenumbers.add(-1);
+                solutionInfos.add(new SolutionInfo(title,pagenumbers));
+
+                solutions = new DiscomfortInfo(null,solutionInfos);
+
+                Intent mIntent = new Intent(getApplicationContext(), WorkStationView.class);
+                Bundle mBundle = new Bundle();
+                mBundle.putSerializable("filter", solutions);
+                mIntent.putExtras(mBundle);
+                startActivity(mIntent);
+
+            }
+        });
+
 
     }
 
@@ -72,14 +92,14 @@ public class WorkstationSC extends FilterActivity {
         super.onBackPressed();
     }
 
-    private class CustomAdapter extends ArrayAdapter<String[]> {
+    private class CustomAdapter extends ArrayAdapter<Content> {
 
-        private ArrayList<String[]> shortCutsList;
+        private ArrayList<Content> shortCutsList;
 
         public CustomAdapter(Context context, int textViewResourceId,
-                             ArrayList<String[]> shortCutsList) {
+                             ArrayList<Content> shortCutsList) {
             super(context, textViewResourceId, shortCutsList);
-            this.shortCutsList = new ArrayList<String[]>();
+            this.shortCutsList = new ArrayList<Content>();
             this.shortCutsList.addAll(shortCutsList);
         }
 
@@ -98,37 +118,19 @@ public class WorkstationSC extends FilterActivity {
                 holder.SCIcon = (ImageView) convertView.findViewById(R.id.ivIconImage);
                 convertView.setTag(holder);
 
-                holder.SCname.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        ArrayList<String> solutions = new ArrayList<String>();
-                        ArrayList<Integer> pagenumbers = new ArrayList<Integer>();
-                        Intent mIntent = new Intent(getApplicationContext(), WorkStationView.class);
-                        TextView tvTextName = (TextView) v;
-                        //Toast.makeText(getApplicationContext(), tvTextName.getText(), Toast.LENGTH_LONG).show();
-                        pagenumbers.add(-1);
-                        solutions.add(tvTextName.getText().toString());
-                        mIntent.putStringArrayListExtra("filter", solutions);
-                        mIntent.putIntegerArrayListExtra("pfilter",pagenumbers);
-
-
-                        startActivity(mIntent);
-                    }
-                });
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
-            String icon = shortCutsList.get(position)[1];
-            int iconResource = getApplicationContext().getResources().getIdentifier(icon, "drawable", getPackageName());
-            String bodyPart = shortCutsList.get(position)[0];
+            Drawable iconResource = shortCutsList.get(position).getIcon();
+            //int iconResource = getApplicationContext().getResources().getIdentifier(icon, "drawable", getPackageName());
+            String furniture = shortCutsList.get(position).getTitle();
 
-            holder.SCname.setTextColor(Color.rgb(15, 153, 255));
-            holder.SCname.setText(bodyPart);
+            holder.SCname.setText(furniture);
             holder.SCname.setTextSize(25);
 
 
             holder.SCname.setGravity(Gravity.CENTER_VERTICAL);
-            //Drawable res = getApplicationContext().getResources().getDrawable(iconResource);
-            holder.SCIcon.setImageResource(iconResource);
+            holder.SCIcon.setImageDrawable(iconResource);
 
 
             return convertView;

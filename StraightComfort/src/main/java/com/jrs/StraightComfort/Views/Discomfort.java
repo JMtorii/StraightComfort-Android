@@ -44,27 +44,12 @@ public class Discomfort extends FilterActivity {
     }
     private void displayListView() {
 
-        ArrayList<DiscomfortInfo> bodypartList = filterscData().getDiscomfortcontents();
-
-
         //create an ArrayAdaptar from the String Array
         dataAdapter = new CustomAdapter(this,
                 R.layout.bodypart_check, filterscData().getDiscomfortcontents());
         ListView listView = (ListView) findViewById(R.id.lvAnalyze);
         // Assign adapter to ListView
         listView.setAdapter(dataAdapter);
-
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                // When clicked, show a toast with the TextView text
-                Bodypart bodypart = (Bodypart) parent.getItemAtPosition(position);
-                Toast.makeText(getApplicationContext(),
-                        "Clicked on Row: " + bodypart.getName(),
-                        Toast.LENGTH_LONG).show();
-            }
-        });
 
     }
 
@@ -95,7 +80,6 @@ public class Discomfort extends FilterActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
 
             ViewHolder holder = null;
-            Log.v("ConvertView", String.valueOf(position));
 
 
             if (convertView == null) {
@@ -130,9 +114,7 @@ public class Discomfort extends FilterActivity {
             holder.BPcheckBox.setChecked(bodyPart.isSelected());
 
             holder.BPcheckBox.setTag(bodyPart);
-            holder.BPname.setTextColor(Color.rgb(15, 153, 255));
             holder.BPname.setTextSize(25);
-
 
             return convertView;
 
@@ -160,6 +142,7 @@ public class Discomfort extends FilterActivity {
                 if (turn) {
                     filterscData().setDiscomfortcontents(dataAdapter.bodypartList);
                     Intent mIntent = new Intent(getApplicationContext(), Solutions.class);
+
 
                     startActivity(mIntent);
                 }

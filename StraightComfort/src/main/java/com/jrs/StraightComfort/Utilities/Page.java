@@ -1,5 +1,7 @@
 package com.jrs.StraightComfort.Utilities;
 
+import android.graphics.drawable.Drawable;
+
 /**
  * Created by Steve_2 on 2014-06-28.
  */
@@ -16,10 +18,6 @@ public class Page {
 
     public String getImageName() {
         return imageName;
-    }
-
-    public void setImageName(String imageName) {
-        this.imageName = imageName;
     }
 
     public String getContent() {

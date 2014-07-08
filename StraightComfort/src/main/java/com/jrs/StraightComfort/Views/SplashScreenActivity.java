@@ -20,21 +20,13 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
 
 public class SplashScreenActivity extends FilterActivity {
-    private static final int TIME = 2 * 1000;// 2 seconds
+    private static final int TIME = 4 * 1000;// 4 seconds
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Context context = getApplicationContext();
-        try {
-            filterscData().init(context);
-            filterscData().getPageInfo();
-            filterscData().getDiscomfortInfo();
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+
         setContentView(R.layout.splash_screen);
 
         new Handler().postDelayed(new Runnable() {
@@ -50,7 +42,20 @@ public class SplashScreenActivity extends FilterActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                try {
+                    Context context = getApplicationContext();
+                    if (filterscData().isInit == false) {
+                        filterscData().init(context);
+                        filterscData().getPageInfo(context);
+                        filterscData().getDiscomfortInfo();
+                        filterscData().isInit = true;
+                    }
 
+                } catch (XmlPullParserException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }, TIME);
     }

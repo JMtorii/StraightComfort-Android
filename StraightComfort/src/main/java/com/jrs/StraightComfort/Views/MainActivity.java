@@ -10,15 +10,19 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.jrs.StraightComfort.R;
+import com.jrs.StraightComfort.Utilities.DiscomfortInfo;
+import com.jrs.StraightComfort.Utilities.SolutionInfo;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
 
 public class MainActivity extends Activity {
 
-    ImageButton FullSetupBtn;
-    ImageButton WorkShortcut;
-    ImageButton Discomfort;
+    TextView FullSetupBtn;
+    TextView WorkShortcut;
+    TextView Discomfort;
     TextView WelcomeScreen;
     Intent nextScreen;
 
@@ -26,22 +30,28 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FullSetupBtn = (ImageButton) findViewById(R.id.FullWorkStation);
-        WorkShortcut = (ImageButton) findViewById(R.id.WorkStation);
-        Discomfort = (ImageButton) findViewById(R.id.Discomfort);
-        WelcomeScreen = (TextView) findViewById(R.id.tvTitle);
+        FullSetupBtn = (TextView) findViewById(R.id.FullWorkStation);
+        WorkShortcut = (TextView) findViewById(R.id.WorkStation);
+        Discomfort = (TextView) findViewById(R.id.Discomfort);
+       // WelcomeScreen = (TextView) findViewById(R.id.tvTitle);
 
 
         FullSetupBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                ArrayList<String> filter = new ArrayList<String>();
-                ArrayList<Integer> pfilter = new ArrayList<Integer>();
-                nextScreen = new Intent(getApplicationContext(), WorkStationView.class);
-                filter.add("all");
-                pfilter.add(-1);
+                DiscomfortInfo solutions = null;
+                ArrayList<SolutionInfo> solutionInfos = new ArrayList<SolutionInfo>();
+                ArrayList<Integer> pagenumbers = new ArrayList<Integer>();
 
-                nextScreen.putStringArrayListExtra("filter", filter);
-                nextScreen.putIntegerArrayListExtra("pfilter",pfilter);
+                pagenumbers.add(-1);
+                String title = "all";
+                solutionInfos.add(new SolutionInfo(title,pagenumbers));
+
+                solutions = new DiscomfortInfo(null,solutionInfos);
+
+                nextScreen = new Intent(getApplicationContext(), WorkStationView.class);
+                Bundle mBundle = new Bundle();
+                mBundle.putSerializable("filter",solutions);
+                nextScreen.putExtras(mBundle);
                 startActivity(nextScreen);
 
 

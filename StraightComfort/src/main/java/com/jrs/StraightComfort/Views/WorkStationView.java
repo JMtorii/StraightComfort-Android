@@ -1,27 +1,20 @@
 package com.jrs.StraightComfort.Views;
 
-import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v13.app.FragmentStatePagerAdapter;
-import android.app.Fragment;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.jrs.StraightComfort.R;
 import com.jrs.StraightComfort.Utilities.Content;
+import com.jrs.StraightComfort.Utilities.DiscomfortInfo;
 import com.jrs.StraightComfort.Utilities.FilterActivity;
 import com.jrs.StraightComfort.Utilities.Page;
+import com.jrs.StraightComfort.Utilities.SolutionInfo;
 
-import org.xmlpull.v1.XmlPullParserException;
-
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -44,38 +37,32 @@ public class WorkStationView extends FilterActivity {
        // TextView mTitle = (TextView) findViewById(R.id.tvWorkStationTitle);
         Intent mIntent = getIntent();
 
-        ArrayList<String> filters= mIntent.getStringArrayListExtra("filter");
-        ArrayList<Integer> pfilters= mIntent.getIntegerArrayListExtra("pfilter");
+        DiscomfortInfo filter = (DiscomfortInfo) mIntent.getSerializableExtra("filter");
 
-        ArrayList<Content> contentPages = filterscData().getContents();
+        ArrayList<SolutionInfo> solutionFilter = filter.getSolutionInfos();
         ArrayList<Content> filterPages = new ArrayList<Content>();
-
+        ArrayList<Content> contentPages = filterscData().getContents();
         for (Content content: contentPages)
         {
-            for (String filter: filters) {
-                if (content.getTitle().equals(filter)) {
-                    filterPages.add(content);
-                } else if (filter.equals("all"))
-                    filterPages.add(content);
-            }
-        }
-        for (Content f: filterPages) {
-            for (Integer pfilter : pfilters)
-            {
-                if (pfilter.equals(-1))
-                {
-                    pages.addAll(f.getPages());
-                    break;
-                }
-                else {
-                    for (Page p : f.getPages()) {
-                        if (p.getPageNum() == pfilter) {
-                            pages.add(p);
+            for (SolutionInfo s: solutionFilter) {
+                if (content.getTitle().equals(s.getFurniture())||s.getFurniture().equals("all")) {
+                    for (Integer i : s.getPages())
+                    {
+                        for (Page p: content.getPages())
+                        {
+                           if (p.getPageNum().equals(i))
+                               pages.add(p);
+                           else if (i.equals(-1))
+                           {
+                               pages.addAll(content.getPages());
+                               break;
+                           }
                         }
                     }
                 }
             }
         }
+
         numPages = pages.size();
         for (Page p: pages) {
             int iconResource = getApplicationContext().getResources().getIdentifier(p.getImageName(), "drawable", getPackageName());

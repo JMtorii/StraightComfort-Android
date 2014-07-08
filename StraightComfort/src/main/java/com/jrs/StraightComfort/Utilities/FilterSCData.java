@@ -2,8 +2,11 @@ package com.jrs.StraightComfort.Utilities;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.util.Log;
 import android.util.Xml;
+import android.widget.ImageView;
 
 import com.jrs.StraightComfort.Views.Discomfort;
 
@@ -20,6 +23,7 @@ public class FilterSCData {
 
     private static final String ns = null;
     private static FilterSCData instance;
+    public boolean isInit = false;
 
     private static final XmlPullParser parseDisconfortXml = Xml.newPullParser();
     private static final XmlPullParser parseScInfoXml = Xml.newPullParser();
@@ -37,7 +41,6 @@ public class FilterSCData {
     public void init(Context context) throws XmlPullParserException, IOException {
         try {
             AssetManager assets = context.getResources().getAssets();
-            Log.e("TAG1",assets.toString());
             InputStream in_xml = assets.open("discomfortInfo.xml");
             parseDisconfortXml.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
             parseDisconfortXml.setInput(in_xml, null);
@@ -125,14 +128,14 @@ public class FilterSCData {
         }
             return new SolutionInfo(title,pages);
     }
-    public void getPageInfo() throws XmlPullParserException, IOException
+    public void getPageInfo(Context context) throws XmlPullParserException, IOException
     {
-        XmlPullParser parser = Xml.newPullParser();
+        XmlPullParser parser = parseScInfoXml;
         String title = "";
         String name = "";
         String icon = "";
-
-        parser = parseScInfoXml;
+        Integer iconResource = 0;
+        Drawable myIcon = null;
         parser.nextTag();
         parser.require(XmlPullParser.START_TAG, ns, "Shortcutinfo");
         while (parser.next() != XmlPullParser.END_TAG) {
@@ -154,16 +157,20 @@ public class FilterSCData {
                     }
                     else if (name.equals("Icon")) {
                         icon = readTagName(parser, "Icon");
+                        iconResource = context.getApplicationContext().getResources().getIdentifier(icon, "drawable", context.getPackageName());
+                        ImageView image = new ImageView(context);
+                        image.setImageResource(iconResource);
+                        myIcon = context.getResources().getDrawable(iconResource);
                     }
                     else if (name.equalsIgnoreCase("Page"))
                     {
-                        pages.add(getPage(parser));
+                        pages.add(getPage(parser,context));
                     }
                     else {
                         skip(parser);
                     }
                 }
-               contents.add(new Content(title,icon,pages));
+               contents.add(new Content(title,myIcon,pages));
             }
             else {
                 skip(parser);
@@ -172,7 +179,7 @@ public class FilterSCData {
     }
 
 
-    public Page getPage(XmlPullParser parser) throws XmlPullParserException, IOException
+    public Page getPage(XmlPullParser parser,Context context) throws XmlPullParserException, IOException
     {
         parser.require(XmlPullParser.START_TAG, ns, "Page");
         String number = "";
@@ -228,7 +235,7 @@ public class FilterSCData {
     private String readTagName(XmlPullParser parser, String tagname) throws IOException, XmlPullParserException {
         parser.require(XmlPullParser.START_TAG, ns, tagname);
         String title = parser.nextText();
-        Log.e("TAG1", title);
+
 
         parser.require(XmlPullParser.END_TAG, ns, tagname);
         return title;

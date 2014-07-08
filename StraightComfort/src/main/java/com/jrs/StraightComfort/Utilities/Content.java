@@ -1,5 +1,7 @@
 package com.jrs.StraightComfort.Utilities;
 
+import android.graphics.drawable.Drawable;
+
 import java.util.ArrayList;
 
 /**
@@ -8,11 +10,11 @@ import java.util.ArrayList;
 
 public class Content {
     private String title;
-    private String icon;
+    private Drawable icon;
     private ArrayList<Page> pages;
 
 
-    public Content(String title,String icon, ArrayList<Page> pages) {
+    public Content(String title,Drawable icon, ArrayList<Page> pages) {
         this.title = title;
         this.icon = icon;
         this.pages = pages;
@@ -23,16 +25,14 @@ public class Content {
         this.title = title;
         this.pages = null;
     }
-
     public String getTitle() {
         return title;
     }
-
     public void setTitle(String title) {
         this.title = title;
     }
 
-    public String getIcon(){return icon; }
+    public Drawable getIcon(){return icon; }
 
     public ArrayList<Page> getPages() {
         return pages;

@@ -1,9 +1,11 @@
 package com.jrs.StraightComfort.Utilities;
 
+import java.io.Serializable;
+
 /**
  * Created by Steve_2 on 2014-05-24.
  */
-public class Bodypart {
+public class Bodypart implements Serializable {
 
      String name = null;
      boolean selected = false;
