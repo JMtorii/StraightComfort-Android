@@ -4,8 +4,7 @@
     android:layout_height="fill_parent"
     android:background="#FFFFFF"
     android:orientation="vertical"
-    android:weightSum="3.0"
-   >
+    android:weightSum="3.0">
 
     <TextView
         android:id="@+id/FullWorkStation"
@@ -22,7 +21,9 @@
         android:textColor="#0F99FF"
         android:text="@string/tv_FullWorkstation"
         android:textAllCaps="true"
-        android:layout_weight="1.0"/>
+        android:layout_weight="1.0"
+        android:paddingBottom="45dp"
+        android:singleLine="false" />
 
     <TextView
         android:id="@+id/WorkStation"
@@ -37,7 +38,9 @@
         android:gravity="bottom"
         android:text="@string/tv_WorkstationSetup"
         android:textAllCaps="true"
-        android:layout_height="100dp" />
+        android:layout_height="100dp"
+        android:paddingBottom="45dp"
+        android:textAlignment="center" />
 
     <TextView
         android:id="@+id/Discomfort"
@@ -52,7 +55,8 @@
         android:gravity="bottom"
         android:textColor="#0F99FF"
         android:textAllCaps="true"
-        android:layout_weight="1.0" />
+        android:layout_weight="1.0"
+        android:paddingBottom="70dp" />
 
 
 </LinearLayout>
