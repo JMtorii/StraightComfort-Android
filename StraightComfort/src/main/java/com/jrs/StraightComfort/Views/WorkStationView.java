@@ -25,7 +25,7 @@ public class WorkStationView extends FilterActivity {
     private PagerAdapter mPagerAdapter;
     private int numPages;
     private ArrayList<Page> pages = new ArrayList<Page>();
-    private ArrayList<Integer> icons = new ArrayList<Integer>();
+    private ArrayList<String> icons = new ArrayList<String>();
 
 
     @Override
@@ -40,7 +40,6 @@ public class WorkStationView extends FilterActivity {
         DiscomfortInfo filter = (DiscomfortInfo) mIntent.getSerializableExtra("filter");
 
         ArrayList<SolutionInfo> solutionFilter = filter.getSolutionInfos();
-        ArrayList<Content> filterPages = new ArrayList<Content>();
         ArrayList<Content> contentPages = filterscData().getContents();
         for (Content content: contentPages)
         {
@@ -64,9 +63,15 @@ public class WorkStationView extends FilterActivity {
         }
 
         numPages = pages.size();
+        //for (Page p: pages) {
+        //    int iconResource = getApplicationContext().getResources().getIdentifier(p.getImageName(), "drawable", getPackageName());
+        //    icons.add(iconResource);
+       // }
         for (Page p: pages) {
-            int iconResource = getApplicationContext().getResources().getIdentifier(p.getImageName(), "drawable", getPackageName());
-            icons.add(iconResource);
+            icons.add(p.getImageName());
+            //    int iconResource = getApplicationContext().getResources().getIdentifier(p.getImageName(), "drawable", getPackageName());
+            //    icons.add(iconResource);
+            //
         }
             mPager = (ViewPager) findViewById(R.id.contentPager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getFragmentManager());
