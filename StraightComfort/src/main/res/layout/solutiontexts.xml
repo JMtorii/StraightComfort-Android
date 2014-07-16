@@ -36,7 +36,8 @@
         android:id="@+id/tvSolutiontitle"
         android:layout_below="@+id/tvProblemtitle"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:paddingTop="30dp" />
 
     <TextView
         android:layout_width="wrap_content"

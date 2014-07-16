@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
         });
         Discomfort.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                nextScreen = new Intent(getApplicationContext(), testview.class);
+                nextScreen = new Intent(getApplicationContext(), Discomfort.class);
                 startActivity(nextScreen);
             }
         });
