@@ -33,6 +33,7 @@ public class SplashScreenActivity extends FilterActivity {
             @Override
             public void run() {
                 Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+
                 startActivity(intent);
                 SplashScreenActivity.this.finish();
                 overridePendingTransition(R.anim.splash_fade_in, R.anim.splash_fade_out);
@@ -49,7 +50,6 @@ public class SplashScreenActivity extends FilterActivity {
                         filterscData().getPageInfo(context);
                         filterscData().getDiscomfortInfo();
                         filterscData().isInit = true;
-
                     }
 
                 } catch (XmlPullParserException e) {
