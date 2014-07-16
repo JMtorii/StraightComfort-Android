@@ -49,6 +49,7 @@ public class SplashScreenActivity extends FilterActivity {
                         filterscData().getPageInfo(context);
                         filterscData().getDiscomfortInfo();
                         filterscData().isInit = true;
+
                     }
 
                 } catch (XmlPullParserException e) {

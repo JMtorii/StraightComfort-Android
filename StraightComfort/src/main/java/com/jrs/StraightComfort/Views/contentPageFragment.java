@@ -3,8 +3,11 @@ package com.jrs.StraightComfort.Views;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,14 +26,14 @@ public class contentPageFragment extends Fragment{
     public static final String IMAGE_PAGE = "image";
 
     private ArrayList<String> ftexts = new ArrayList<String>();
-    private ArrayList<Integer> fimages = new ArrayList<Integer>();
+    private ArrayList<String> fimages = new ArrayList<String>();
     private int mPageNumber;
 
-    public static Fragment create(int position,ArrayList<Page> pages,ArrayList<Integer> icons) {
+    public static Fragment create(int position,ArrayList<Page> pages,ArrayList<String> icons) {
         contentPageFragment fragment = new contentPageFragment();
         Bundle args = new Bundle();
         ArrayList<String> texts = new ArrayList<String>();
-        ArrayList<Integer> images = new ArrayList<Integer>();
+        ArrayList<String> images = new ArrayList<String>();
 
 
         for (Page page: pages)
@@ -40,7 +43,7 @@ public class contentPageFragment extends Fragment{
         images = icons;
 
         args.putStringArrayList(TEXT_PAGE,texts);
-        args.putIntegerArrayList(IMAGE_PAGE,images);
+        args.putStringArrayList(IMAGE_PAGE, images);
         args.putInt(ARG_PAGE, position);
 
         fragment.setArguments(args);
@@ -54,7 +57,7 @@ public class contentPageFragment extends Fragment{
         super.onCreate(savedInstanceState);
         mPageNumber = getArguments().getInt(ARG_PAGE);
         ftexts = getArguments().getStringArrayList(TEXT_PAGE);
-        fimages = getArguments().getIntegerArrayList(IMAGE_PAGE);
+        fimages = getArguments().getStringArrayList(IMAGE_PAGE);
     }
 
     @Override
@@ -62,12 +65,26 @@ public class contentPageFragment extends Fragment{
                              Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.contentholder, container, false);
 
-        int iconResource = fimages.get(mPageNumber);
-
+        String iconResource = fimages.get(mPageNumber);
+        String data = "<html><img src=\""+iconResource+" \"width=1000dpi height=1000dpi></html>";
         ((TextView) rootView.findViewById(R.id.tvContentText)).setText(ftexts.get(mPageNumber));
-        ((ImageView) rootView.findViewById(R.id.ivContentImage)).setImageResource(iconResource);
+        WebView wv =  ((WebView) rootView.findViewById(R.id.wvContentImage));
+        WebSettings settings = wv.getSettings();
+        settings.setUseWideViewPort(true);
+        settings.setSupportZoom(false);
+        settings.setLoadWithOverviewMode(true);
+
+        wv.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
+        wv.loadDataWithBaseURL("file:///android_asset/",data, "text/html","UTF-8", null);
+
         return rootView;
     }
+
     public int getPageNumber() {
         return mPageNumber;
     }

@@ -9,7 +9,6 @@
     <TextView
         android:id="@+id/FullWorkStation"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -22,9 +21,16 @@
         android:text="@string/tv_FullWorkstation"
         android:textAllCaps="true"
         android:layout_weight="1.0"
+        android:layout_height="100dp"
         android:paddingBottom="45dp"
-        android:singleLine="false" />
+        android:textAlignment="center"
 
+        />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.2dp"
+        android:visibility="visible"
+        android:background="@android:color/darker_gray"/>
     <TextView
         android:id="@+id/WorkStation"
         android:layout_width="match_parent"
@@ -34,14 +40,20 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:background="@drawable/background"
+
         android:textSize="35dp"
         android:gravity="bottom"
         android:text="@string/tv_WorkstationSetup"
         android:textAllCaps="true"
+
         android:layout_height="100dp"
         android:paddingBottom="45dp"
-        android:textAlignment="center" />
-
+        android:textAlignment="center"  />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.2dp"
+        android:visibility="visible"
+        android:background="@android:color/darker_gray"/>
     <TextView
         android:id="@+id/Discomfort"
         android:layout_width="match_parent"
