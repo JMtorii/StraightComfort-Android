@@ -10,7 +10,7 @@
     <string name="action_finish">Finish</string>
     <string name="action_next">Next</string>
     <string name="tv_analyze">ANALYZE</string>
-    <string name="tv_FullWorkstation">Full Workstation Setup\n</string>
-    <string name="tv_WorkstationSetup">Workstation Shortcut\n</string>
-    <string name="tv_Discomfort">Discomfort\n</string>
+    <string name="tv_FullWorkstation">Full Workstation Setup</string>
+    <string name="tv_WorkstationSetup">Workstation Shortcut</string>
+    <string name="tv_Discomfort">Discomfort</string>
 </resources>
