@@ -22,5 +22,6 @@
         android:layout_alignParentBottom="true"
         android:textColor="#0F99FF"
         android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/cbBPname"></TextView>
+        android:layout_toLeftOf="@+id/cbBPname"
+        android:textSize="25sp"></TextView>
 </RelativeLayout>

@@ -14,9 +14,11 @@
         android:id="@+id/tvProblemtitle"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:dividerHeight="20.0dp"
+        />
 
-    <TextView
+    j<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -26,7 +28,9 @@
         android:layout_alignParentEnd="true"
         android:textColor="#0F99FF"
         android:layout_alignBottom="@+id/tvProblemtitle"
-        android:layout_toRightOf="@+id/tvProblemtitle" />
+        android:layout_toRightOf="@+id/tvProblemtitle"
+        android:dividerHeight="20.0dp"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,6 +41,7 @@
         android:layout_below="@+id/tvProblemtitle"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:dividerHeight="20.0dp"
         android:paddingTop="30dp" />
 
     <TextView
@@ -49,5 +54,7 @@
         android:layout_alignParentStart="true"
         android:textColor="#0F99FF"
         android:layout_alignRight="@+id/tvProblemPart"
-        android:layout_alignEnd="@+id/tvProblemPart" />
+        android:layout_alignEnd="@+id/tvProblemPart"
+        android:dividerHeight="20.0dp"
+        />
 </RelativeLayout>

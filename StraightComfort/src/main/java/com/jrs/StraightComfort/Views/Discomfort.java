@@ -148,7 +148,7 @@ public class Discomfort extends FilterActivity {
                 }
                 else
                 {
-                    Toast.makeText(getApplicationContext(),"Please select discomfort", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Please select a discomfort first!", Toast.LENGTH_LONG).show();
                 }
             }
         });
