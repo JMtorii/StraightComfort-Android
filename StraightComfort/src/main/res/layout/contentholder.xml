@@ -30,6 +30,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:padding="7dp"
-        android:textAlignment="inherit" />
+        android:textAlignment="inherit"
+        android:textIsSelectable="false" />
 </RelativeLayout>
 
