@@ -15,7 +15,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:background="@drawable/background"
-        android:textSize="35dp"
+        android:textSize="30dp"
         android:gravity="bottom"
         android:textColor="#0F99FF"
         android:text="@string/tv_FullWorkstation"
@@ -41,7 +41,7 @@
         android:layout_alignParentStart="true"
         android:background="@drawable/background"
 
-        android:textSize="35dp"
+        android:textSize="30dp"
         android:gravity="bottom"
         android:text="@string/tv_WorkstationSetup"
         android:textAllCaps="true"
@@ -63,7 +63,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="@string/tv_Discomfort"
-        android:textSize="35dp"
+        android:textSize="30dp"
 
         android:gravity="bottom"
         android:textColor="#0F99FF"
