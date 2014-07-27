@@ -61,8 +61,7 @@ public class FragmentWelcome1 extends Fragment {
                              Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_viewpager_layout1, container, false);
 
-     TextView viewText = ((TextView) rootView.findViewById(R.id.text1));
-
+        TextView viewText = ((TextView) rootView.findViewById(R.id.tvWelcomePageTitle));
 
 
         return rootView;

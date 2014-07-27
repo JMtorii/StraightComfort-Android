@@ -13,7 +13,7 @@
         android:text="Let's improve\n your workstation!"
         android:textSize="35sp"
         android:gravity="center"
-
+        android:fontFamily="sans-serif-thin"
         android:id="@+id/textView" />
 
     <TextView
