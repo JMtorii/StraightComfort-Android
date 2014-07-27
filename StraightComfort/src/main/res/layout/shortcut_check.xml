@@ -3,12 +3,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     >
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:id="@+id/ivIconImage"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="15dp"
         />
     <TextView
         android:id="@+id/tvScName"
@@ -20,6 +22,7 @@
         android:layout_toRightOf="@+id/ivIconImage"
         android:layout_alignBottom="@+id/ivIconImage"
         android:textColor="#0F99FF"
+        android:textAllCaps="true"
         android:paddingLeft="10dp" />
 
 

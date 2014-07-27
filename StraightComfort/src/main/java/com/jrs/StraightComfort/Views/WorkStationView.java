@@ -30,6 +30,7 @@ public class WorkStationView extends FilterActivity {
     private ArrayList<String> icons = new ArrayList<String>();
     private ArrayList<Content> showingContent = new ArrayList<Content>();
     private ArrayList<Page> showingPages = new ArrayList<Page>();
+    private ArrayList<String> actionBarTitles = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +48,7 @@ public class WorkStationView extends FilterActivity {
       //  introPage.add(new Page("INTRO","INTRO",-1));
         //showingContent.add(new Content("INTRO",null,introPage));
         showingPages.add(new Page("INTRO", "INTRO", -1));
+        actionBarTitles.add("Start");
         int counter1 = 0;
         int counter2 = 1;
         for (Content content: contentPages)
@@ -61,15 +63,21 @@ public class WorkStationView extends FilterActivity {
                             if (p.getPageNum().equals(i)) {
                                // currPages.add(p);
                                 showingPages.add(p);
+                                actionBarTitles.add(content.getTitle());
                             } else if (i.equals(-1)) {
                                // currPages.addAll(content.getPages());
                                 showingPages.addAll(content.getPages());
+                                for (Page page : content.getPages())
+                                {
+                                    actionBarTitles.add(content.getTitle());
+                                }
                                 break;
                             }
                         }
                     }
                     if (s.getFurniture().equals("all")&&counter1<contentPages.size()-1||counter2<solutionFilter.size()){
                         currPages.add(new Page("LIFEISCRAP","LIFEISCRAP",-1));
+                        actionBarTitles.add("Make Life Better");
                         showingPages.add(new Page("LIFEISCRAP","LIFEISCRAP",-1));
                         counter2++;
                     }
@@ -83,7 +91,7 @@ public class WorkStationView extends FilterActivity {
         endingPage.add(new Page("LIFEISBETTER","LIFEISBETTER",-1));
        // showingContent.add(new Content("LIFEISBETTER",null,endingPage));
         showingPages.add(new Page("LIFEISBETTER","LIFEISBETTER",-1));
-
+        actionBarTitles.add("Life is better");
         numPages = showingPages.size();
         mPager = (ViewPager) findViewById(R.id.contentPager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getFragmentManager());
@@ -111,7 +119,7 @@ public class WorkStationView extends FilterActivity {
             super(fm);
         }
         @Override
-        public Fragment getItem(int position){return contentPageFragment.create(position,showingPages.get(position));}
+        public Fragment getItem(int position){return contentPageFragment.create(position,showingPages.get(position),actionBarTitles.get(position));}
         @Override
         public int getCount(){return numPages;}
 
