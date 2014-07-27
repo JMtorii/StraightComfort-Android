@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Possible Solutions:"
+        android:text="Steps to improve include:"
         android:id="@+id/tvSolutiontitle"
         android:layout_below="@+id/tvProblemtitle"
         android:layout_alignParentLeft="true"

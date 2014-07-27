@@ -19,7 +19,8 @@
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/ivIconImage"
         android:layout_alignBottom="@+id/ivIconImage"
-        android:textColor="#0F99FF"/>
+        android:textColor="#0F99FF"
+        android:paddingLeft="10dp" />
 
 
 </RelativeLayout>
