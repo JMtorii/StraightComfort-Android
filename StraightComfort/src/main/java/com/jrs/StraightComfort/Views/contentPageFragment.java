@@ -92,7 +92,7 @@ public class contentPageFragment extends Fragment{
             textView.setText("Yay!");
 
         }
-        else if (ftexts.equals("LIFEISBETTER"))git 
+        else if (ftexts.equals("LIFEISBETTER"))
         {
             rootView = (ViewGroup) inflater.inflate(R.layout.lifeisbetter,container,false);
             String text = "Return home";
