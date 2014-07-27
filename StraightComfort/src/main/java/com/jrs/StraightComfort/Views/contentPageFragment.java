@@ -2,6 +2,7 @@ package com.jrs.StraightComfort.Views;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -14,6 +15,8 @@ import android.widget.TextView;
 import com.jrs.StraightComfort.R;
 import com.jrs.StraightComfort.Utilities.Page;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 /**
@@ -25,25 +28,18 @@ public class contentPageFragment extends Fragment{
     public static final String TEXT_PAGE = "text";
     public static final String IMAGE_PAGE = "image";
 
-    private ArrayList<String> ftexts = new ArrayList<String>();
-    private ArrayList<String> fimages = new ArrayList<String>();
+    private String ftexts = "";
+    private String fimage = "";
     private int mPageNumber;
 
-    public static Fragment create(int position,ArrayList<Page> pages,ArrayList<String> icons) {
+    public static Fragment create(int position,Page page) {
         contentPageFragment fragment = new contentPageFragment();
         Bundle args = new Bundle();
-        ArrayList<String> texts = new ArrayList<String>();
-        ArrayList<String> images = new ArrayList<String>();
+        String text = page.getContent();
+        String image = page.getImageName();
 
-
-        for (Page page: pages)
-        {
-            texts.add(page.getContent());
-        }
-        images = icons;
-
-        args.putStringArrayList(TEXT_PAGE,texts);
-        args.putStringArrayList(IMAGE_PAGE, images);
+        args.putString(TEXT_PAGE, text);
+        args.putString(IMAGE_PAGE, image);
         args.putInt(ARG_PAGE, position);
 
         fragment.setArguments(args);
@@ -56,32 +52,75 @@ public class contentPageFragment extends Fragment{
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         mPageNumber = getArguments().getInt(ARG_PAGE);
-        ftexts = getArguments().getStringArrayList(TEXT_PAGE);
-        fimages = getArguments().getStringArrayList(IMAGE_PAGE);
+        ftexts = getArguments().getString(TEXT_PAGE);
+        fimage = getArguments().getString(IMAGE_PAGE);
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,
                              Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.contentholder, container, false);
+        ViewGroup rootView = null;
 
-        String iconResource = fimages.get(mPageNumber);
-        String data = "<html><img src=\""+iconResource+" \"width=1000dpi height=1000dpi></html>";
-        ((TextView) rootView.findViewById(R.id.tvContentText)).setText(ftexts.get(mPageNumber));
-        WebView wv =  ((WebView) rootView.findViewById(R.id.wvContentImage));
-        WebSettings settings = wv.getSettings();
-        settings.setUseWideViewPort(true);
-        settings.setSupportZoom(false);
-        settings.setLoadWithOverviewMode(true);
+        if (ftexts.equals("INTRO"))
+        {
+            rootView = (ViewGroup) inflater.inflate(R.layout.intropage, container,false);
 
-        wv.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return true;
-            }
-        });
-        wv.loadDataWithBaseURL("file:///android_asset/",data, "text/html","UTF-8", null);
+            String iconResource = "finger.gif";
+            String data = "<html><img src=\"" + iconResource + " \"width=1000dpi height=1000dpi></html>";
+            WebView wv = ((WebView) rootView.findViewById(R.id.wvIntroview));
+            WebSettings settings = wv.getSettings();
+            settings.setUseWideViewPort(true);
+            settings.setSupportZoom(false);
+            settings.setLoadWithOverviewMode(true);
 
+            wv.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    return true;
+                }
+            });
+            wv.loadDataWithBaseURL("file:///android_asset/", data, "text/html", "UTF-8", null);
+        }
+        else if (ftexts.equals("LIFEISCRAP"))
+        {
+            rootView = (ViewGroup) inflater.inflate(R.layout.lifeisbetter,container,false);
+            String text = "Make life better";
+            ((TextView) rootView.findViewById(R.id.tvButtonView)).setText(text);
+            final TextView textView = ((TextView) rootView.findViewById(R.id.tvBetter));
+            textView.setText("Yay!");
+            rootView.setOnTouchListener(new View.OnDragListener(){
+                @Over
+            });
+        }
+        else if (ftexts.equals("LIFEISBETTER"))
+        {
+            rootView = (ViewGroup) inflater.inflate(R.layout.lifeisbetter,container,false);
+            String text = "Return home";
+            ((TextView) rootView.findViewById(R.id.tvLifebetter)).setVisibility(View.INVISIBLE);
+            ((TextView) rootView.findViewById(R.id.tvBetter)).setText("Life's a lot better \n now :)");
+            ((TextView) rootView.findViewById(R.id.tvButtonView)).setText(text);
+        }
+        else {
+            rootView = (ViewGroup) inflater.inflate(R.layout.contentholder, container, false);
+            String iconResource = fimage;
+            String data = "<html><img src=\"" + iconResource + " \" align=\"middle\" width=\"1000dp\" height=\"1000dp\"></html>";
+            ((TextView) rootView.findViewById(R.id.tvContentText)).setText(ftexts);
+            WebView wv = ((WebView) rootView.findViewById(R.id.wvContentImage));
+            WebSettings settings = wv.getSettings();
+            settings.setUseWideViewPort(true);
+            settings.setSupportZoom(false);
+            settings.setLoadWithOverviewMode(true);
+
+            wv.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    return true;
+                }
+            });
+            wv.loadDataWithBaseURL("file:///android_asset/", data, "text/html", "UTF-8", null);
+        }
         return rootView;
     }
 

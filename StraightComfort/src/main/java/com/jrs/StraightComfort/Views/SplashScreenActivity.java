@@ -8,8 +8,14 @@ package com.jrs.StraightComfort.Views;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
+import android.view.MotionEvent;
+import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 
 import com.jrs.StraightComfort.R;
 import com.jrs.StraightComfort.Utilities.FilterActivity;
@@ -21,6 +27,7 @@ import java.io.IOException;
 
 public class SplashScreenActivity extends FilterActivity {
     private static final int TIME = 4 * 1000;// 4 seconds
+    private static final String preference = "AppNameSettings";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +39,20 @@ public class SplashScreenActivity extends FilterActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
-
+                Intent intent =null;
+                SharedPreferences sharedPreferences = getSharedPreferences(preference,0);
+                boolean firstUser = sharedPreferences.getBoolean("firstUser",true);
+                if (firstUser)
+                {
+                    intent = new Intent(SplashScreenActivity.this, WelcomePagerAdapter.class);
+                    firstUser = false;
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putBoolean("firstUser",firstUser);
+                    editor.commit();
+                }
+                else {
+                    intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                }
                 startActivity(intent);
                 SplashScreenActivity.this.finish();
                 overridePendingTransition(R.anim.splash_fade_in, R.anim.splash_fade_out);
@@ -45,13 +64,10 @@ public class SplashScreenActivity extends FilterActivity {
             public void run() {
                 try {
                     Context context = getApplicationContext();
-                    if (filterscData().isInit == false) {
+
                         filterscData().init(context);
                         filterscData().getPageInfo(context);
                         filterscData().getDiscomfortInfo();
-                        filterscData().isInit = true;
-                    }
-
                 } catch (XmlPullParserException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
