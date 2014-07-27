@@ -90,11 +90,9 @@ public class contentPageFragment extends Fragment{
             ((TextView) rootView.findViewById(R.id.tvButtonView)).setText(text);
             final TextView textView = ((TextView) rootView.findViewById(R.id.tvBetter));
             textView.setText("Yay!");
-            rootView.setOnTouchListener(new View.OnDragListener(){
-                @Over
-            });
+
         }
-        else if (ftexts.equals("LIFEISBETTER"))
+        else if (ftexts.equals("LIFEISBETTER"))git 
         {
             rootView = (ViewGroup) inflater.inflate(R.layout.lifeisbetter,container,false);
             String text = "Return home";
