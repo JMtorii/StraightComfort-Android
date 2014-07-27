@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:paddingTop="120dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="35sp"
+        android:gravity="center"
+        android:fontFamily="sans-serif-thin"
+        android:id="@+id/tvBetter" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:text="We made your workstation a \nbit better :)"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="#AAAAAA"
+        android:id="@+id/tvLifebetter" />
+
+    <TextView
+
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="105dp"
+        android:gravity="center"
+        android:textSize="35sp"
+        android:textColor="#0F99FF"
+        android:id="@+id/tvButtonView"
+        android:background="@drawable/background" />
+</LinearLayout>
