@@ -54,7 +54,6 @@ public class MainActivity extends Activity {
                 nextScreen.putExtras(mBundle);
                 startActivity(nextScreen);
 
-
             }
         });
         WorkShortcut.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +66,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 nextScreen = new Intent(getApplicationContext(), Discomfort.class);
                 startActivity(nextScreen);
+
             }
         });
       /*  WelcomeScreen.setOnClickListener(new View.OnClickListener() {

@@ -1,6 +1,7 @@
 package com.jrs.StraightComfort.Views;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -13,7 +14,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jrs.StraightComfort.R;
+import com.jrs.StraightComfort.Utilities.DiscomfortInfo;
 import com.jrs.StraightComfort.Utilities.Page;
+import com.jrs.StraightComfort.Utilities.SolutionInfo;
 
 import org.w3c.dom.Text;
 
@@ -26,13 +29,15 @@ public class contentPageFragment extends Fragment{
 
     public static final String ARG_PAGE = "page";
     public static final String TEXT_PAGE = "text";
+    public static final String PAGE_TITLE = "title";
     public static final String IMAGE_PAGE = "image";
 
     private String ftexts = "";
     private String fimage = "";
+    private String title = "";
     private int mPageNumber;
 
-    public static Fragment create(int position,Page page) {
+    public static Fragment create(int position,Page page, String title) {
         contentPageFragment fragment = new contentPageFragment();
         Bundle args = new Bundle();
         String text = page.getContent();
@@ -40,6 +45,7 @@ public class contentPageFragment extends Fragment{
 
         args.putString(TEXT_PAGE, text);
         args.putString(IMAGE_PAGE, image);
+        args.putString(PAGE_TITLE, title);
         args.putInt(ARG_PAGE, position);
 
         fragment.setArguments(args);
@@ -54,6 +60,7 @@ public class contentPageFragment extends Fragment{
         mPageNumber = getArguments().getInt(ARG_PAGE);
         ftexts = getArguments().getString(TEXT_PAGE);
         fimage = getArguments().getString(IMAGE_PAGE);
+        title = getArguments().getString(PAGE_TITLE);
     }
 
 
@@ -74,7 +81,7 @@ public class contentPageFragment extends Fragment{
             settings.setUseWideViewPort(true);
             settings.setSupportZoom(false);
             settings.setLoadWithOverviewMode(true);
-
+            getActivity().getActionBar().setTitle("Start");
             wv.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
@@ -90,7 +97,7 @@ public class contentPageFragment extends Fragment{
             ((TextView) rootView.findViewById(R.id.tvButtonView)).setText(text);
             final TextView textView = ((TextView) rootView.findViewById(R.id.tvBetter));
             textView.setText("Yay!");
-
+            getActivity().getActionBar().setTitle("Make life Better");
         }
         else if (ftexts.equals("LIFEISBETTER"))
         {
@@ -99,6 +106,17 @@ public class contentPageFragment extends Fragment{
             ((TextView) rootView.findViewById(R.id.tvLifebetter)).setVisibility(View.INVISIBLE);
             ((TextView) rootView.findViewById(R.id.tvBetter)).setText("Life's a lot better \n now :)");
             ((TextView) rootView.findViewById(R.id.tvButtonView)).setText(text);
+            getActivity().getActionBar().setTitle("Life is Better");
+            ((TextView) rootView.findViewById(R.id.tvButtonView)).setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+
+
+                    getActivity().finish();
+
+
+                }
+            });
+
         }
         else {
             rootView = (ViewGroup) inflater.inflate(R.layout.contentholder, container, false);
@@ -118,7 +136,9 @@ public class contentPageFragment extends Fragment{
                 }
             });
             wv.loadDataWithBaseURL("file:///android_asset/", data, "text/html", "UTF-8", null);
+            getActivity().getActionBar().setTitle(title);
         }
+
         return rootView;
     }
 

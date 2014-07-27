@@ -142,9 +142,8 @@ public class Discomfort extends FilterActivity {
                 if (turn) {
                     filterscData().setDiscomfortcontents(dataAdapter.bodypartList);
                     Intent mIntent = new Intent(getApplicationContext(), Solutions.class);
-
-
                     startActivity(mIntent);
+                    finish();
                 }
                 else
                 {

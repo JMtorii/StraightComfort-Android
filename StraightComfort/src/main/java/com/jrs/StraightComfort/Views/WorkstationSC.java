@@ -79,6 +79,7 @@ public class WorkstationSC extends FilterActivity {
                 mBundle.putSerializable("filter", solutions);
                 mIntent.putExtras(mBundle);
                 startActivity(mIntent);
+                finish();
 
             }
         });

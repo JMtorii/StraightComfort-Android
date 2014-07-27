@@ -26,12 +26,13 @@
         android:id="@+id/tvLifebetter" />
 
     <TextView
+
+        android:layout_marginTop="100dp"
         android:layout_width="match_parent"
-        android:layout_height="201dp"
+        android:layout_height="105dp"
         android:gravity="center"
         android:textSize="35sp"
         android:textColor="#0F99FF"
         android:id="@+id/tvButtonView"
-        android:background="@drawable/background"
-        android:layout_weight="1.05" />
+        android:background="@drawable/background" />
 </LinearLayout>
