@@ -1,27 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="fill_parent">
 
     <ListView
+        android:id="@+id/lvAnalyze"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lvAnalyze"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/separator"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/btnAnalyze" />
-
-    <ImageButton
+        android:layout_alignParentTop="true"
+        android:textSize="20dp"
+        />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.2dp"
+        android:visibility="visible"
+        android:id="@+id/separator"
+        android:layout_above="@+id/tvAnalyze"
+        android:background="@android:color/darker_gray"/>
+    <TextView
+        android:id="@+id/tvAnalyze"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:id="@+id/btnAnalyze"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:background="#0F99FF"
+        android:layout_alignParentStart="true"
+        android:textColor="#FFFFFF"
+        android:text="@string/tv_analyze"
+        android:gravity="center"
+        android:textSize="40sp"/>
 
 </RelativeLayout>

@@ -2,68 +2,72 @@ package com.jrs.StraightComfort.Views;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jrs.StraightComfort.R;
 import com.jrs.StraightComfort.Utilities.Bodypart;
+import com.jrs.StraightComfort.Utilities.DiscomfortInfo;
+import com.jrs.StraightComfort.Utilities.FilterActivity;
 
 import java.util.ArrayList;
 
 /**
  * Created by Steve Jung (jsh0211) on 2014-05-21.
  */
-public class Discomfort extends Activity{
+public class Discomfort extends FilterActivity {
+
+    CustomAdapter dataAdapter = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.discomfort);
-        ListView partsList = (ListView) findViewById(R.id.lvAnalyze);
-        ArrayList<Bodypart>  bodypartList = new ArrayList<Bodypart>();
-        ImageButton btnAnalyze = (ImageButton) findViewById(R.id.btnAnalyze);
 
-
-        //RelativeLayout.LayoutParams cbparams = new RelativeLayout.LayoutParams(80,RelativeLayout.LayoutParams.MATCH_PARENT);
-        //cbparams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-        //RelativeLayout.LayoutParams tvparams = new RelativeLayout.LayoutParams(20,RelativeLayout.LayoutPara,ms.MATCH_PARENT);
-        //tvparams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-        String[] bodyParts = new String[] {"Nose","Eyes","Mouth","Crotch","Nose","Eyes","Mouth","Crotch","Nose","Eyes","Mouth","Crotch"};
-        for (int i = 0; i< bodyParts.length;i++)
-        {
-            bodypartList.add(new Bodypart(bodyParts[i]));
-        }
-
-        final CustomAdapter listAdapter = new CustomAdapter(this,R.layout.bodypart_check,bodypartList);
-
-        partsList.setAdapter(listAdapter);
-
-
-        btnAnalyze.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ArrayList<Bodypart> selectedParts = listAdapter.bodypartList;
-
-            }
-        });
+     displayListView();
+     checkButtonClick();
 
     }
-    private class CustomAdapter extends ArrayAdapter<Bodypart> {
+    private void displayListView() {
 
-        private ArrayList<Bodypart> bodypartList;
+        //create an ArrayAdaptar from the String Array
+        dataAdapter = new CustomAdapter(this,
+                R.layout.bodypart_check, filterscData().getDiscomfortcontents());
+        ListView listView = (ListView) findViewById(R.id.lvAnalyze);
+        // Assign adapter to ListView
+        listView.setAdapter(dataAdapter);
+
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        this.onDestroy();
+        super.onBackPressed();
+    }
+
+    private class CustomAdapter extends ArrayAdapter<DiscomfortInfo> {
+
+        private ArrayList<DiscomfortInfo> bodypartList;
 
         public CustomAdapter(Context context, int textViewResourceId,
-                               ArrayList<Bodypart> bodypartList) {
+                             ArrayList<DiscomfortInfo> bodypartList) {
             super(context, textViewResourceId, bodypartList);
-            this.bodypartList = new ArrayList<Bodypart>();
+            this.bodypartList = new ArrayList<DiscomfortInfo>();
             this.bodypartList.addAll(bodypartList);
         }
 
@@ -77,42 +81,77 @@ public class Discomfort extends Activity{
 
             ViewHolder holder = null;
 
+
             if (convertView == null) {
-                LayoutInflater vi = (LayoutInflater)getSystemService(
+                LayoutInflater vi = (LayoutInflater) getSystemService(
                         Context.LAYOUT_INFLATER_SERVICE);
                 convertView = vi.inflate(R.layout.bodypart_check, null);
 
                 holder = new ViewHolder();
-                holder.BPname  = (TextView) convertView.findViewById(R.id.tvBPname);
+                holder.BPname = (TextView) convertView.findViewById(R.id.tvBPname);
                 holder.BPcheckBox = (CheckBox) convertView.findViewById(R.id.cbBPname);
                 convertView.setTag(holder);
 
-                holder.BPcheckBox.setOnClickListener( new View.OnClickListener() {
-                    public void onClick(View v) {
-                        CheckBox cb = (CheckBox) v ;
 
+                holder.BPcheckBox.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        CheckBox cb = (CheckBox) v;
+                        Bodypart bodypart = (Bodypart) cb.getTag();
+
+                        bodypart.setSelected(cb.isChecked());
                     }
+
                 });
-            }
-            else {
+
+            } else {
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            Bodypart bodyPart = bodypartList.get(position);
-            holder.BPname.setText(bodyPart.getName());
-            holder.BPname.setTag(bodyPart);
-            holder.BPname.setTextSize(50);
+            Bodypart bodyPart = bodypartList.get(position).getBodypart();
 
+            holder.BPname.setText(bodyPart.getName());
+
+            holder.BPcheckBox.setChecked(bodyPart.isSelected());
+
+            holder.BPcheckBox.setTag(bodyPart);
+            holder.BPname.setTextSize(25);
 
             return convertView;
 
         }
+   }
 
-    }
+    private void checkButtonClick() {
+        TextView myButton = (TextView) findViewById(R.id.tvAnalyze);
+        myButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+        boolean turn = false;
+
+                ArrayList<DiscomfortInfo> bodypartList = dataAdapter.bodypartList;
+                for(DiscomfortInfo discomfort : bodypartList){
+                    Bodypart bodypart = discomfort.getBodypart();
+                    if (bodypart.isSelected())
+                    {
+                        turn = true;
+                        break;
+                    }
+                }
+                if (turn) {
+                    filterscData().setDiscomfortcontents(dataAdapter.bodypartList);
+                    Intent mIntent = new Intent(getApplicationContext(), Solutions.class);
+                    startActivity(mIntent);
+                    finish();
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Please select a discomfort first!", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
 
 
-    @Override public void onBackPressed() {
-        this.finish();
-        super.onBackPressed();
     }
 }
