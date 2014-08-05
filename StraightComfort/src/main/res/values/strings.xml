@@ -13,4 +13,5 @@
     <string name="tv_FullWorkstation">Full Workstation Setup</string>
     <string name="tv_WorkstationSetup">Workstation Shortcut</string>
     <string name="tv_Discomfort">Discomfort</string>
+    <string name="action_Welcome">Help</string>
 </resources>

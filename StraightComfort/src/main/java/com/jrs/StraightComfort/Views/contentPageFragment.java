@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jrs.StraightComfort.R;
@@ -29,7 +30,6 @@ public class contentPageFragment extends Fragment{
 
     public static final String ARG_PAGE = "page";
     public static final String TEXT_PAGE = "text";
-    public static final String PAGE_TITLE = "title";
     public static final String IMAGE_PAGE = "image";
 
     private String ftexts = "";
@@ -37,7 +37,7 @@ public class contentPageFragment extends Fragment{
     private String title = "";
     private int mPageNumber;
 
-    public static Fragment create(int position,Page page, String title) {
+    public static Fragment create(int position,Page page) {
         contentPageFragment fragment = new contentPageFragment();
         Bundle args = new Bundle();
         String text = page.getContent();
@@ -45,7 +45,6 @@ public class contentPageFragment extends Fragment{
 
         args.putString(TEXT_PAGE, text);
         args.putString(IMAGE_PAGE, image);
-        args.putString(PAGE_TITLE, title);
         args.putInt(ARG_PAGE, position);
 
         fragment.setArguments(args);
@@ -60,7 +59,6 @@ public class contentPageFragment extends Fragment{
         mPageNumber = getArguments().getInt(ARG_PAGE);
         ftexts = getArguments().getString(TEXT_PAGE);
         fimage = getArguments().getString(IMAGE_PAGE);
-        title = getArguments().getString(PAGE_TITLE);
     }
 
 
@@ -81,7 +79,6 @@ public class contentPageFragment extends Fragment{
             settings.setUseWideViewPort(true);
             settings.setSupportZoom(false);
             settings.setLoadWithOverviewMode(true);
-            getActivity().getActionBar().setTitle("Start");
             wv.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
@@ -94,26 +91,31 @@ public class contentPageFragment extends Fragment{
         {
             rootView = (ViewGroup) inflater.inflate(R.layout.lifeisbetter,container,false);
             String text = "Make life better";
+            TextView textButton = (TextView) rootView.findViewById(R.id.tvButtonView);
             ((TextView) rootView.findViewById(R.id.tvButtonView)).setText(text);
             final TextView textView = ((TextView) rootView.findViewById(R.id.tvBetter));
+            final LinearLayout thisLayout = (LinearLayout) rootView.findViewById(R.id.lllifeisbetter);
+            textButton.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                }
+            });
+            thisLayout.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View v) {
+                }
+            });
             textView.setText("Yay!");
-            getActivity().getActionBar().setTitle("Make life Better");
+
         }
         else if (ftexts.equals("LIFEISBETTER"))
         {
             rootView = (ViewGroup) inflater.inflate(R.layout.lifeisbetter,container,false);
             String text = "Return home";
-            ((TextView) rootView.findViewById(R.id.tvLifebetter)).setVisibility(View.INVISIBLE);
+            ( rootView.findViewById(R.id.tvLifebetter)).setVisibility(View.INVISIBLE);
             ((TextView) rootView.findViewById(R.id.tvBetter)).setText("Life's a lot better \n now :)");
             ((TextView) rootView.findViewById(R.id.tvButtonView)).setText(text);
-            getActivity().getActionBar().setTitle("Life is Better");
-            ((TextView) rootView.findViewById(R.id.tvButtonView)).setOnClickListener(new View.OnClickListener() {
+            ( rootView.findViewById(R.id.tvButtonView)).setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-
-
                     getActivity().finish();
-
-
                 }
             });
 
@@ -122,27 +124,31 @@ public class contentPageFragment extends Fragment{
             rootView = (ViewGroup) inflater.inflate(R.layout.contentholder, container, false);
             String iconResource = fimage;
             String data = "<html><img src=\"" + iconResource + " \" align=\"middle\" width=\"1000dp\" height=\"1000dp\"></html>";
+            TextView textView = (TextView)rootView.findViewById(R.id.tvContentText);
             ((TextView) rootView.findViewById(R.id.tvContentText)).setText(ftexts);
             WebView wv = ((WebView) rootView.findViewById(R.id.wvContentImage));
             WebSettings settings = wv.getSettings();
             settings.setUseWideViewPort(true);
             settings.setSupportZoom(false);
             settings.setLoadWithOverviewMode(true);
-
             wv.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
                     return true;
                 }
             });
+            textView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    return true;
+                }
+            });
             wv.loadDataWithBaseURL("file:///android_asset/", data, "text/html", "UTF-8", null);
-            getActivity().getActionBar().setTitle(title);
         }
 
         return rootView;
     }
 
-    public int getPageNumber() {
-        return mPageNumber;
-    }
+
+
 }

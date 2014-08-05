@@ -8,10 +8,13 @@
         android:icon="@drawable/icon2"
         android:label="@string/app_name"
         android:theme="@style/MyTheme"
+        android:screenOrientation="portrait"
        >
         <activity
             android:name=".Views.SplashScreenActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,10 +24,13 @@
 
         <activity
             android:name=".Views.MainActivity"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".Views.WorkStationView"
-            android:label="">
+            android:label=""
+            android:screenOrientation="portrait">
+
             <intent-filter>
                 <!--    <action android:name="com.jrs.StraightComfort.Views.WorkStationView"></action> -->
                 <category android:name="android.intent.category.DEFAULT"></category>
@@ -34,14 +40,16 @@
         <activity android:name=".Views.WelcomePagerAdapter"
             android:label="Welcome"
             android:parentActivityName=".Views.MainActivity"
-            android:uiOptions="splitActionBarWhenNarrow">
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:screenOrientation="portrait">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
 
         <activity
             android:name=".Views.Discomfort"
-            android:label="Discomfort">
+            android:label="Discomfort"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <!--    <action android:name="com.jrs.StraightComfort.Views.WorkStationView"></action> -->
                 <category android:name="android.intent.category.DEFAULT"></category>
@@ -50,7 +58,8 @@
         </activity>
         <activity
             android:name=".Views.WorkstationSC"
-            android:label="Shortcuts">
+            android:label="Shortcuts"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <!--    <action android:name="com.jrs.StraightComfort.Views.WorkStationView"></action> -->
                 <category android:name="android.intent.category.DEFAULT"></category>
@@ -59,7 +68,8 @@
         </activity>
         <activity
             android:name=".Views.Solutions"
-            android:label="Possible Solutions">
+            android:label="Possible Solutions"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <!--    <action android:name="com.jrs.StraightComfort.Views.WorkStationView"></action> -->
                 <category android:name="android.intent.category.DEFAULT"></category>
@@ -69,7 +79,8 @@
 
         <activity
             android:name=".Views.testview"
-            android:label="testview">
+            android:label="testview"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <!--    <action android:name="com.jrs.StraightComfort.Views.WorkStationView"></action> -->
                 <category android:name="android.intent.category.DEFAULT"></category>
