@@ -124,6 +124,7 @@ public class contentPageFragment extends Fragment{
             rootView = (ViewGroup) inflater.inflate(R.layout.contentholder, container, false);
             String iconResource = fimage;
             String data = "<html><img src=\"" + iconResource + " \" align=\"middle\" width=\"1000dp\" height=\"1000dp\"></html>";
+            TextView textView = (TextView)rootView.findViewById(R.id.tvContentText);
             ((TextView) rootView.findViewById(R.id.tvContentText)).setText(ftexts);
             WebView wv = ((WebView) rootView.findViewById(R.id.wvContentImage));
             WebSettings settings = wv.getSettings();
@@ -131,6 +132,12 @@ public class contentPageFragment extends Fragment{
             settings.setSupportZoom(false);
             settings.setLoadWithOverviewMode(true);
             wv.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    return true;
+                }
+            });
+            textView.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
                     return true;
