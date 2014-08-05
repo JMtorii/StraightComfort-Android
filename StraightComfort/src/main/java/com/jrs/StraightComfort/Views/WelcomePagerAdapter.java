@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.app.FragmentActivity;
@@ -12,7 +13,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import com.jrs.StraightComfort.Utilities.Constants;
 import com.jrs.StraightComfort.R;
 
 import static com.jrs.StraightComfort.R.id;
@@ -104,7 +105,22 @@ public class WelcomePagerAdapter extends FragmentActivity {
         if (mPager.getCurrentItem() == 0) {
             // If the user is currently looking at the first step, allow the system to handle the
             // Back button. This calls finish() on this activity and pops the back stack.
+            SharedPreferences sharedPreferences = getSharedPreferences(Constants.PREFERENCES,0);
+            boolean firstUser = sharedPreferences.getBoolean("firstUser",true);
+            if (!firstUser)
             super.onBackPressed();
+            else
+            {
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+                firstUser = false;
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("firstUser",firstUser);
+                editor.commit();
+                this.finish();
+
+            }
+
         } else {
             // Otherwise, select the previous step.
             mPager.setCurrentItem(mPager.getCurrentItem() - 1);

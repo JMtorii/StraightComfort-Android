@@ -4,7 +4,10 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    android:clickable="false"
+    android:id="@+id/lllifeisbetter"
+    >
 
     <TextView
         android:paddingTop="120dp"
@@ -27,13 +30,13 @@
         android:id="@+id/tvLifebetter" />
 
     <TextView
-
         android:layout_marginTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="105dp"
         android:gravity="center"
         android:textSize="35sp"
+        android:background="@drawable/background"
         android:textColor="#0F99FF"
         android:id="@+id/tvButtonView"
-        android:background="@drawable/background" />
+        />
 </LinearLayout>

@@ -18,6 +18,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import com.jrs.StraightComfort.R;
+import com.jrs.StraightComfort.Utilities.Constants;
 import com.jrs.StraightComfort.Utilities.FilterActivity;
 import com.jrs.StraightComfort.Utilities.FilterSCData;
 
@@ -27,7 +28,6 @@ import java.io.IOException;
 
 public class SplashScreenActivity extends FilterActivity {
     private static final int TIME = 4 * 1000;// 4 seconds
-    private static final String preference = "AppNameSettings";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +40,12 @@ public class SplashScreenActivity extends FilterActivity {
             @Override
             public void run() {
                 Intent intent =null;
-                SharedPreferences sharedPreferences = getSharedPreferences(preference,0);
+                SharedPreferences sharedPreferences = getSharedPreferences(Constants.PREFERENCES,0);
                 boolean firstUser = sharedPreferences.getBoolean("firstUser",true);
                 if (firstUser)
                 {
                     intent = new Intent(SplashScreenActivity.this, WelcomePagerAdapter.class);
-                    firstUser = false;
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putBoolean("firstUser",firstUser);
-                    editor.commit();
+
                 }
                 else {
                     intent = new Intent(SplashScreenActivity.this, MainActivity.class);
