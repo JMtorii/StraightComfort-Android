@@ -73,7 +73,6 @@ public class WorkStationView extends FilterActivity  {
                                     prevContent=content.getTitle();
                                     startPages.add(actionBarTitles.size());
                                 }
-                                prevContent = content.getTitle();
                                 actionBarTitles.add(content.getTitle());
                             } else if (i.equals(-1)) {
                                 showingPages.addAll(content.getPages());
@@ -125,11 +124,10 @@ public class WorkStationView extends FilterActivity  {
                 // but for simplicity, the activity provides the actions in this sample.
                 mPager = (CustomViewPager) findViewById(R.id.contentPager);
                 (mPager.getAdapter()).getPageTitle(position);
-                mPager.setCurrPos(position);
                 if ((mPager.getAdapter()).getPageTitle(position).equals("Make Life Better")) {
                     TextView textView = (TextView) mPager.findViewById(R.id.tvButtonView);
 
-                    mPager.setPaging(false);
+                    mPager.setEndPaging(true);
                    textView.setOnClickListener(new View.OnClickListener() {
                        public void onClick(View v) {
                            for(int i =0;i<startPages.size();i++){
@@ -143,7 +141,7 @@ public class WorkStationView extends FilterActivity  {
                    });
                 }
                 else{
-                    mPager.setPaging(true);
+                    mPager.setEndPaging(false);
                     if (startPages.contains(position)==true)
                     {
                         mPager.setStartPaging(true);

@@ -13,16 +13,10 @@ import java.util.ArrayList;
 
 public class CustomViewPager extends ViewPager{
 
-    private boolean isPaging = true;
-    private boolean isStartPaging = false;
-    private int currPos = 0;
-    OnSwipeOutListener mListener;
-
-
-
-    public void setOnSwipeOutListener(OnSwipeOutListener listener) {
-        mListener = listener;
-    }
+    private boolean mEndPaging = false;
+    private boolean mStartPaging = false;
+    private final int L2R_SWIPE = -1;
+    private final int R2L_SWIPE = 1;
 
     float mStartDragX;
     float mStartDragX2;
@@ -41,32 +35,26 @@ public class CustomViewPager extends ViewPager{
                 break;
             case MotionEvent.ACTION_MOVE:
                 if (mStartDragX < x ) {
-                    Log.d("Message","Right2");
-                    dir=-1;
+                    dir=L2R_SWIPE;
                 } else if (mStartDragX > x ) {
-                    Log.d("Message","Left2");
-                    dir=1;
+                    dir=R2L_SWIPE;
                 }
                 break;
         }
-        if (isPaging && !isStartPaging) {
-            return super.onInterceptTouchEvent(ev);
-        }
-        else if (!isPaging)
+        if (dir == L2R_SWIPE)
         {
-            if (dir==-1)
-                this.setCurrentItem(this.getCurrentItem() - 1);
-
-            return false;
+            if (mStartPaging)
+                return false;
+            else return super.onInterceptTouchEvent(ev);
         }
-        else if (isStartPaging)
+        else if (dir == R2L_SWIPE)
         {
-            if (dir==1)
-                this.setCurrentItem(this.getCurrentItem()+1);
-            return false;
+            if (mEndPaging)
+                return false;
+            else return super.onInterceptTouchEvent(ev);
         }
         else
-            return false;
+            return super.onInterceptTouchEvent(ev);
 
     }
 
@@ -79,52 +67,35 @@ public class CustomViewPager extends ViewPager{
                 mStartDragX2 = x;
                 break;
             case MotionEvent.ACTION_MOVE:
-                if (mStartDragX2 < x && getCurrentItem() == 0) {
-                    Log.d("Message","Right1");
-                    dir = -1;
-                } else if (mStartDragX2 > x && getCurrentItem() == getAdapter().getCount() - 1) {
-                    Log.d("Message","Left1");
-                    dir = 1;
+                if (mStartDragX2 < x) {
+                    dir = L2R_SWIPE;
+                } else if (mStartDragX2 > x) {
+                    dir = R2L_SWIPE;
                 }
                 break;
         }
-        if (isPaging && !isStartPaging) {
-            return super.onTouchEvent(ev);
-        }
-        else if (!isPaging)
+        if (dir == L2R_SWIPE)
         {
-            if (dir==-1)
-                this.setCurrentItem(this.getCurrentItem() - 1);
-
-            return false;
+            if (mStartPaging)
+                return false;
+            else return super.onTouchEvent(ev);
         }
-        else if (isStartPaging)
+        else if (dir == R2L_SWIPE)
         {
-            if (dir==1)
-                this.setCurrentItem(this.getCurrentItem()+1);
-            return false;
+            if (mEndPaging)
+                return false;
+            else return super.onTouchEvent(ev);
         }
         else
-            return false;
+            return super.onTouchEvent(ev);
 
     }
 
-
-    public void setPaging(boolean isPaging) {
-        this.isPaging = isPaging;
+    public void setEndPaging(boolean endPaging) {
+        this.mEndPaging = endPaging;
     }
 
-    public void setCurrPos(int currPos){
-        this.currPos = currPos;
+    public void setStartPaging(boolean startPaging){
+        this.mStartPaging = startPaging;
     }
-    public void setStartPaging(boolean isStartPaging){
-        this.isStartPaging = isStartPaging;
-    }
-    public interface OnSwipeOutListener {
-        public void onSwipeOutAtStart();
-        public void onSwipeOutAtEnd();
-    }
-
-
 }
-
