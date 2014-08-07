@@ -5,14 +5,14 @@
         <Icon>chairicon</Icon>
         <Page>
             <Number>1</Number>
-            <Image>chairicon1.png</Image>
+            <Image>chairicon1.gif</Image>
             <Text>We must adjust the chair to the proper height by using lever 1 as shown in the picture. The height of the chair  should be at an appropriate level so that your thighs are parallel to the floor as well as your feet flat on the ground.
             </Text>
         </Page>
 
         <Page>
             <Number>2</Number>
-            <Image>bouncingBallExample.gif</Image>
+            <Image>chairicon2.gif</Image>
             <Text>If possible, the seat depth should be adjusted as well. It should be close enough to the backrest so that you can use its support and also leave 2 to 3 fingers’ space between the edge of the seat and the back of your knee.
             </Text>
         </Page>
