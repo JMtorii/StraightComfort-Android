@@ -12,6 +12,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -42,14 +43,14 @@ public class SplashScreenActivity extends FilterActivity {
                 Intent intent =null;
                 SharedPreferences sharedPreferences = getSharedPreferences(Constants.PREFERENCES,0);
                 boolean firstUser = sharedPreferences.getBoolean("firstUser",true);
-               // if (firstUser)
-               // {
-             //       intent = new Intent(SplashScreenActivity.this, WelcomePagerAdapter.class);
-
-                //}
-                //else {
-                  //  intent = new Intent(SplashScreenActivity.this, MainActivity.class);
-                //}
+                if (firstUser)
+                {
+                    //intent = new Intent(SplashScreenActivity.this, WelcomePagerAdapter.class);
+                    intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                }
+                else {
+                    intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                }
                 startActivity(intent);
                 SplashScreenActivity.this.finish();
                 overridePendingTransition(R.anim.splash_fade_in, R.anim.splash_fade_out);
