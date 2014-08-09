@@ -7,7 +7,10 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.TextView;
+
+import com.jrs.StraightComfort.R;
 
 import java.util.ArrayList;
 
@@ -27,6 +30,7 @@ public class CustomViewPager extends ViewPager{
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
+/*
         float x = ev.getX();
         int dir = 0;
         switch (ev.getAction()) {
@@ -45,49 +49,64 @@ public class CustomViewPager extends ViewPager{
         {
             if (mStartPaging)
                 return false;
-            else return super.onInterceptTouchEvent(ev);
+            else
+                return super.onInterceptTouchEvent(ev);
         }
         else if (dir == R2L_SWIPE)
         {
             if (mEndPaging)
                 return false;
-            else return super.onInterceptTouchEvent(ev);
+            else
+                return super.onInterceptTouchEvent(ev);
         }
         else
             return super.onInterceptTouchEvent(ev);
-
+*/
+        Log.d("Position2",Integer.toString(getCurrentItem()));
+        return true;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
+
         float x = ev.getX();
         int dir = 0;
+        Log.d("Event",MotionEvent.actionToString(ev.getAction()));
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mStartDragX2 = x;
                 break;
-            case MotionEvent.ACTION_MOVE:
+            default:
                 if (mStartDragX2 < x) {
                     dir = L2R_SWIPE;
                 } else if (mStartDragX2 > x) {
                     dir = R2L_SWIPE;
                 }
+                mStartDragX2= x;
                 break;
         }
         if (dir == L2R_SWIPE)
         {
             if (mStartPaging)
                 return false;
-            else return super.onTouchEvent(ev);
+            else {
+                Log.d("Position1.1", Integer.toString(getCurrentItem()));
+                return super.onTouchEvent(ev);
+            }
         }
         else if (dir == R2L_SWIPE)
         {
             if (mEndPaging)
                 return false;
-            else return super.onTouchEvent(ev);
+            else {
+                Log.d("Position1.2", Integer.toString(getCurrentItem()));
+                return super.onTouchEvent(ev);
+            }
         }
-        else
+        else {
+            Log.d("Position1.3", Integer.toString(getCurrentItem()));
             return super.onTouchEvent(ev);
+        }
 
     }
 

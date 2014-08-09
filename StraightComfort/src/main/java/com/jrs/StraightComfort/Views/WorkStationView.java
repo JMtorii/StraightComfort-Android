@@ -34,10 +34,12 @@ public class WorkStationView extends FilterActivity  {
     private CustomViewPager mPager;
     private PagerAdapter mPagerAdapter;
     private int numPages;
-    public int prevpos = -1;
+    private int prevpos = 0;
     private ArrayList<Page> showingPages = new ArrayList<Page>();
     private ArrayList<String> actionBarTitles = new ArrayList<String>();
     private ArrayList<Integer> startPages = new ArrayList<Integer>();
+    private float mLastPositionOffset = 0.2f;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +53,6 @@ public class WorkStationView extends FilterActivity  {
 
         ArrayList<SolutionInfo> solutionFilter = filter.getSolutionInfos();
         ArrayList<Content> contentPages = filterscData().getContents();
-
         showingPages.add(new Page("INTRO", "INTRO", -1));
         actionBarTitles.add("Start");
         int counter1 = 0;
@@ -110,11 +111,17 @@ public class WorkStationView extends FilterActivity  {
         mPager.setAdapter(mPagerAdapter);
 
         (mPager.getAdapter()).getPageTitle(0);
+        mPager.setOffscreenPageLimit(0);
+
+
 
         mPager.setOnPageChangeListener(new CustomViewPager.SimpleOnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, final float v, final int i2){
 
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                if (state==mPager.SCROLL_STATE_SETTLING||mPager.getCurrentItem()==1)
+                    mPager.setCurrentItem(mPager.getCurrentItem());
+                Log.d("Position3",Integer.toString(mPager.getCurrentItem()));
             }
             @Override
             public void onPageSelected(int position) {
@@ -123,11 +130,11 @@ public class WorkStationView extends FilterActivity  {
                 // fragment expose actions itself (rather than the activity exposing actions),
                 // but for simplicity, the activity provides the actions in this sample.
                 mPager = (CustomViewPager) findViewById(R.id.contentPager);
-                (mPager.getAdapter()).getPageTitle(position);
+
                 if ((mPager.getAdapter()).getPageTitle(position).equals("Make Life Better")) {
                     TextView textView = (TextView) mPager.findViewById(R.id.tvButtonView);
-
                     mPager.setEndPaging(true);
+                    mPager.setStartPaging(false);
                    textView.setOnClickListener(new View.OnClickListener() {
                        public void onClick(View v) {
                            for(int i =0;i<startPages.size();i++){
@@ -142,22 +149,14 @@ public class WorkStationView extends FilterActivity  {
                 }
                 else{
                     mPager.setEndPaging(false);
-                    if (startPages.contains(position)==true)
-                    {
+                    if (startPages.contains(position))
                         mPager.setStartPaging(true);
-                    }
                     else
-                    {
                         mPager.setStartPaging(false);
-                    }
 
                 }
+                Log.d("Position4",Integer.toString(mPager.getCurrentItem()));
             }
-            @Override
-            public void onPageScrollStateChanged(final int i){
-
-            }
-
 
 
         });
