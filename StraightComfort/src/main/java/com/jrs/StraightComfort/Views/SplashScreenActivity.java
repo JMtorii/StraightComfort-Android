@@ -42,14 +42,14 @@ public class SplashScreenActivity extends FilterActivity {
                 Intent intent =null;
                 SharedPreferences sharedPreferences = getSharedPreferences(Constants.PREFERENCES,0);
                 boolean firstUser = sharedPreferences.getBoolean("firstUser",true);
-                if (firstUser)
-                {
-                    intent = new Intent(SplashScreenActivity.this, WelcomePagerAdapter.class);
+               // if (firstUser)
+               // {
+             //       intent = new Intent(SplashScreenActivity.this, WelcomePagerAdapter.class);
 
-                }
-                else {
-                    intent = new Intent(SplashScreenActivity.this, MainActivity.class);
-                }
+                //}
+                //else {
+                  //  intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                //}
                 startActivity(intent);
                 SplashScreenActivity.this.finish();
                 overridePendingTransition(R.anim.splash_fade_in, R.anim.splash_fade_out);

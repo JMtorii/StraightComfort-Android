@@ -12,6 +12,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.jrs.StraightComfort.R;
@@ -91,18 +92,9 @@ public class contentPageFragment extends Fragment{
         {
             rootView = (ViewGroup) inflater.inflate(R.layout.lifeisbetter,container,false);
             String text = "Make life better";
-            TextView textButton = (TextView) rootView.findViewById(R.id.tvButtonView);
             ((TextView) rootView.findViewById(R.id.tvButtonView)).setText(text);
             final TextView textView = ((TextView) rootView.findViewById(R.id.tvBetter));
-            final LinearLayout thisLayout = (LinearLayout) rootView.findViewById(R.id.lllifeisbetter);
-            textButton.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                }
-            });
-            thisLayout.setOnClickListener(new View.OnClickListener(){
-                public void onClick(View v) {
-                }
-            });
+
             textView.setText("Yay!");
 
         }
@@ -126,11 +118,19 @@ public class contentPageFragment extends Fragment{
             String data = "<html><img src=\"" + iconResource + " \" align=\"middle\" width=\"1000dp\" height=\"1000dp\"></html>";
             TextView textView = (TextView)rootView.findViewById(R.id.tvContentText);
             ((TextView) rootView.findViewById(R.id.tvContentText)).setText(ftexts);
+            RelativeLayout relativeLayout = (RelativeLayout) rootView.findViewById(R.id.rlContentView);
+
             WebView wv = ((WebView) rootView.findViewById(R.id.wvContentImage));
             WebSettings settings = wv.getSettings();
             settings.setUseWideViewPort(true);
             settings.setSupportZoom(false);
             settings.setLoadWithOverviewMode(true);
+            relativeLayout.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    return true;
+                }
+            });
             wv.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
