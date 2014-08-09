@@ -3,12 +3,9 @@ package com.jrs.StraightComfort.Utilities;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.util.Log;
 import android.util.Xml;
 import android.widget.ImageView;
-
-import com.jrs.StraightComfort.Views.Discomfort;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -17,7 +14,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class FilterSCData {
 

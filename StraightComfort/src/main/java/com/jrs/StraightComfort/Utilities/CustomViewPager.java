@@ -1,18 +1,10 @@
 package com.jrs.StraightComfort.Utilities;
 
 import android.content.Context;
-import android.gesture.Gesture;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.GestureDetector;
 import android.view.MotionEvent;
-import android.view.View;
-import android.widget.TextView;
-
-import com.jrs.StraightComfort.R;
-
-import java.util.ArrayList;
 
 public class CustomViewPager extends ViewPager{
 

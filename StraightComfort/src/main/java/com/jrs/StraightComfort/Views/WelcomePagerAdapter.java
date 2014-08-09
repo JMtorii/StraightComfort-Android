@@ -2,7 +2,6 @@ package com.jrs.StraightComfort.Views;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,12 +10,10 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.Menu;
 import android.view.MenuItem;
-import com.jrs.StraightComfort.Utilities.Constants;
-import com.jrs.StraightComfort.R;
 
-import static com.jrs.StraightComfort.R.id;
+import com.jrs.StraightComfort.R;
+import com.jrs.StraightComfort.Utilities.Constants;
 
 public class WelcomePagerAdapter extends FragmentActivity {
     /**

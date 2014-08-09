@@ -1,7 +1,5 @@
 package com.jrs.StraightComfort.Utilities;
 
-import android.graphics.drawable.Drawable;
-
 /**
  * Created by Steve_2 on 2014-06-28.
  */
