@@ -81,10 +81,17 @@ public class contentPageFragment extends Fragment{
         else if (ftexts.equals("LIFEISCRAP"))
         {
             rootView = (ViewGroup) inflater.inflate(R.layout.lifeisbetter,container,false);
+            LinearLayout layout = (LinearLayout) rootView.findViewById(R.id.lllifeisbetter);
+
             String text = "Make life better";
             ((TextView) rootView.findViewById(R.id.tvButtonView)).setText(text);
             final TextView textView = ((TextView) rootView.findViewById(R.id.tvBetter));
-
+            layout.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    return false;
+                }
+            });
             textView.setText("Yay!");
 
         }
@@ -115,24 +122,7 @@ public class contentPageFragment extends Fragment{
             settings.setUseWideViewPort(true);
             settings.setSupportZoom(false);
             settings.setLoadWithOverviewMode(true);
-            relativeLayout.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    return true;
-                }
-            });
-            wv.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    return true;
-                }
-            });
-            textView.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    return true;
-                }
-            });
+
             wv.loadDataWithBaseURL("file:///android_asset/", data, "text/html", "UTF-8", null);
         }
 
