@@ -8,72 +8,77 @@
         android:icon="@drawable/icon2"
         android:label="@string/app_name"
         android:theme="@style/MyTheme"
-        android:screenOrientation="portrait"
-       >
+        android:screenOrientation="portrait">
+
         <activity
             android:name=".Views.SplashScreenActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
 
         <activity
             android:name=".Views.MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".Views.WorkStationView"
             android:label=""
             android:screenOrientation="portrait">
 
             <intent-filter>
-                <!--    <action android:name="com.jrs.StraightComfort.Views.WorkStationView"></action> -->
-                <category android:name="android.intent.category.DEFAULT"></category>
-
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+
         <activity android:name=".Views.WelcomePagerAdapter"
             android:label="Welcome"
             android:parentActivityName=".Views.MainActivity"
             android:uiOptions="splitActionBarWhenNarrow"
             android:screenOrientation="portrait">
+
             <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                       android:value=".MainActivity" />
         </activity>
 
         <activity
             android:name=".Views.Discomfort"
             android:label="Discomfort"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <!--    <action android:name="com.jrs.StraightComfort.Views.WorkStationView"></action> -->
-                <category android:name="android.intent.category.DEFAULT"></category>
 
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+
         <activity
             android:name=".Views.WorkstationSC"
             android:label="Shortcuts"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <!--    <action android:name="com.jrs.StraightComfort.Views.WorkStationView"></action> -->
-                <category android:name="android.intent.category.DEFAULT"></category>
 
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+
         <activity
             android:name=".Views.Solutions"
             android:label="Possible Solutions"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <!--    <action android:name="com.jrs.StraightComfort.Views.WorkStationView"></action> -->
-                <category android:name="android.intent.category.DEFAULT"></category>
 
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
 
@@ -81,12 +86,11 @@
             android:name=".Views.testview"
             android:label="testview"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <!--    <action android:name="com.jrs.StraightComfort.Views.WorkStationView"></action> -->
-                <category android:name="android.intent.category.DEFAULT"></category>
 
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-    </application>
 
+    </application>
 </manifest>
