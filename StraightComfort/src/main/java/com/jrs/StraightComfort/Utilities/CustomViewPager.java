@@ -7,7 +7,8 @@ import android.util.Log;
 import android.view.MotionEvent;
 
 public class CustomViewPager extends ViewPager{
-
+    private GestureDetector mGestureDetector;
+    //private FilingRunnable mFilingRunnable = new FilingRunable();
     private boolean mEndPaging = false;
     private boolean mStartPaging = false;
     private final int L2R_SWIPE = -1;
@@ -22,7 +23,7 @@ public class CustomViewPager extends ViewPager{
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-/*
+
         float x = ev.getX();
         int dir = 0;
         switch (ev.getAction()) {
@@ -53,9 +54,10 @@ public class CustomViewPager extends ViewPager{
         }
         else
             return super.onInterceptTouchEvent(ev);
-*/
-        Log.d("Position2",Integer.toString(getCurrentItem()));
-        return true;
+
+
+     //   Log.d("Position2",Integer.toString(getCurrentItem()));
+     //   return true;
     }
 
     @Override
