@@ -122,7 +122,7 @@ public class contentPageFragment extends Fragment{
         else {
             rootView = (ViewGroup) inflater.inflate(R.layout.contentholder, container, false);
             String iconResource = fimage;
-            String data = "<html><img src=\"" + iconResource + " \" align=\"middle\" width=\"1000dp\" height=\"1000dp\"></html>";
+            String data = "<html><img src=\"" + iconResource + " \" align=\"middle\" width=\"900dp\" height=\"900dp\"></html>";
             TextView textView = (TextView)rootView.findViewById(R.id.tvContentText);
             ((TextView) rootView.findViewById(R.id.tvContentText)).setText(ftexts);
             RelativeLayout relativeLayout = (RelativeLayout) rootView.findViewById(R.id.rlContentView);
