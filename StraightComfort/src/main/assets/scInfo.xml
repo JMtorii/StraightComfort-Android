@@ -50,7 +50,7 @@
         <Icon>keyboardtrayicon</Icon>
         <Page>
             <Number>1</Number>
-            <Image>keyboardHeight.gif</Image>
+            <Image>keyboardtrayupdown.gif</Image>
             <Text>To obtain the correct working height, adjust the keyboard tray up or down so that your wrists are straight, forearms are parallel to the floor, and your palms are facing down.
             </Text>
         </Page>
