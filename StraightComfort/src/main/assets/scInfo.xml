@@ -64,13 +64,13 @@
 
         <Page>
             <Number>3</Number>
-            <Image>keyboardtrayicon2.png</Image>
+            <Image>kbtkbondesk.png</Image>
             <Text>If the keyboard and mouse are located on the desk surface, adjust the chair height until your arms are parallel to the floor and your wrists are straight. You may require a footrest to support your legs and feet if they are no longer supported by the floor.
             </Text>
         </Page>
         <Page>
             <Number>4</Number>
-            <Image>keyboardtrayicon3.png</Image>
+            <Image>kbtwristyesno.gif</Image>
             <Text>Avoid resting your wrists while typing. Only use wrist supports during rest periods. If possible, remove your hands from the keyboard entirely to promote micro-breaks. Make sure to place the support under your palms and not your wrists.
             </Text>
         </Page>
