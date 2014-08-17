@@ -11,12 +11,10 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.Menu;
 import android.view.MenuItem;
 import com.jrs.StraightComfort.Utilities.Constants;
 import com.jrs.StraightComfort.R;
 
-import static com.jrs.StraightComfort.R.id;
 
 public class WelcomePagerAdapter extends FragmentActivity {
     /**

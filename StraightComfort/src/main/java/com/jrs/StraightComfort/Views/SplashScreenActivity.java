@@ -5,23 +5,15 @@ package com.jrs.StraightComfort.Views;
  */
 
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.view.View;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
 
 import com.jrs.StraightComfort.R;
 import com.jrs.StraightComfort.Utilities.Constants;
 import com.jrs.StraightComfort.Utilities.FilterActivity;
-import com.jrs.StraightComfort.Utilities.FilterSCData;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -45,7 +37,6 @@ public class SplashScreenActivity extends FilterActivity {
                 boolean firstUser = sharedPreferences.getBoolean("firstUser",true);
                 if (firstUser)
                 {
-                    //intent = new Intent(SplashScreenActivity.this, WelcomePagerAdapter.class);
                     intent = new Intent(SplashScreenActivity.this, MainActivity.class);
                 }
                 else {

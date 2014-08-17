@@ -6,14 +6,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.jrs.StraightComfort.R;
 import com.jrs.StraightComfort.Utilities.DiscomfortInfo;
 import com.jrs.StraightComfort.Utilities.SolutionInfo;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 

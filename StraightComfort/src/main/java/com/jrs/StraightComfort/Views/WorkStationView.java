@@ -7,15 +7,8 @@ import android.os.Bundle;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowId;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.jrs.StraightComfort.R;
 import com.jrs.StraightComfort.Utilities.Content;
 import com.jrs.StraightComfort.Utilities.DiscomfortInfo;
@@ -24,8 +17,6 @@ import com.jrs.StraightComfort.Utilities.Page;
 import com.jrs.StraightComfort.Utilities.SolutionInfo;
 import com.jrs.StraightComfort.Utilities.CustomViewPager;
 import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.Map;
 
 /**
  * Created by Steve Jung (jsh0211) on 2014-05-21.
@@ -44,7 +35,6 @@ public class WorkStationView extends FilterActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.full_workstation);
-
 
        // TextView mTitle = (TextView) findViewById(R.id.tvWorkStationTitle);
         Intent mIntent = getIntent();
@@ -111,24 +101,14 @@ public class WorkStationView extends FilterActivity  {
         mPager.setAdapter(mPagerAdapter);
 
         (mPager.getAdapter()).getPageTitle(0);
-        mPager.setOffscreenPageLimit(0);
-
 
 
         mPager.setOnPageChangeListener(new CustomViewPager.SimpleOnPageChangeListener() {
 
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                if (state==mPager.SCROLL_STATE_SETTLING||mPager.getCurrentItem()==1)
-                    mPager.setCurrentItem(mPager.getCurrentItem());
-                Log.d("Position3",Integer.toString(mPager.getCurrentItem()));
-            }
+
             @Override
             public void onPageSelected(int position) {
-                // When changing pages, reset the action bar actions since they are dependent
-                // on which page is currently active. An alternative approach is to have each
-                // fragment expose actions itself (rather than the activity exposing actions),
-                // but for simplicity, the activity provides the actions in this sample.
+
                 mPager = (CustomViewPager) findViewById(R.id.contentPager);
 
                 if ((mPager.getAdapter()).getPageTitle(position).equals("Make Life Better")) {
@@ -143,7 +123,6 @@ public class WorkStationView extends FilterActivity  {
                                    break;
                                }
                            }
-
                        }
                    });
                 }
@@ -155,10 +134,7 @@ public class WorkStationView extends FilterActivity  {
                         mPager.setStartPaging(false);
 
                 }
-                Log.d("Position4",Integer.toString(mPager.getCurrentItem()));
             }
-
-
         });
 
     }
@@ -168,7 +144,10 @@ public class WorkStationView extends FilterActivity  {
         public ScreenSlidePagerAdapter(FragmentManager fm){
             super(fm);
         }
-
+        @Override
+        public int getItemPosition(Object object){
+            return PagerAdapter.POSITION_NONE;
+        }
         @Override
         public Fragment getItem(int position){
             return contentPageFragment.create(position,showingPages.get(position));

@@ -1,28 +1,18 @@
 package com.jrs.StraightComfort.Views;
 
 import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.jrs.StraightComfort.R;
-import com.jrs.StraightComfort.Utilities.DiscomfortInfo;
 import com.jrs.StraightComfort.Utilities.Page;
-import com.jrs.StraightComfort.Utilities.SolutionInfo;
-
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 
 /**
  * Created by Steve_2 on 2014-06-29.
@@ -122,7 +112,7 @@ public class contentPageFragment extends Fragment{
         else {
             rootView = (ViewGroup) inflater.inflate(R.layout.contentholder, container, false);
             String iconResource = fimage;
-            String data = "<html><img src=\"" + iconResource + " \" align=\"middle\" width=\"900dp\" height=\"900dp\"></html>";
+            String data = "<html><img src=\"" + iconResource + " \" align=\"middle\" width=\"98%\" height=\"98%\"></html>";
             TextView textView = (TextView)rootView.findViewById(R.id.tvContentText);
             ((TextView) rootView.findViewById(R.id.tvContentText)).setText(ftexts);
             RelativeLayout relativeLayout = (RelativeLayout) rootView.findViewById(R.id.rlContentView);
@@ -132,6 +122,8 @@ public class contentPageFragment extends Fragment{
             settings.setUseWideViewPort(true);
             settings.setSupportZoom(false);
             settings.setLoadWithOverviewMode(true);
+            wv.setFocusable(false);
+            wv.setClickable(false);
 
             wv.loadDataWithBaseURL("file:///android_asset/", data, "text/html", "UTF-8", null);
         }

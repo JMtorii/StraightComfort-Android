@@ -1,37 +1,25 @@
 package com.jrs.StraightComfort.Utilities;
 
 import android.content.Context;
-import android.gesture.Gesture;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.GestureDetector;
 import android.view.MotionEvent;
-import android.view.View;
-import android.widget.TextView;
 
-import com.jrs.StraightComfort.R;
-
-import java.util.ArrayList;
 
 public class CustomViewPager extends ViewPager{
-    private GestureDetector mGestureDetector;
     //private FilingRunnable mFilingRunnable = new FilingRunable();
     private boolean mEndPaging = false;
     private boolean mStartPaging = false;
     private final int L2R_SWIPE = -1;
     private final int R2L_SWIPE = 1;
-
     float mStartDragX;
     float mStartDragX2;
     public CustomViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
-
-
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-
         float x = ev.getX();
         int dir = 0;
         switch (ev.getAction()) {
@@ -62,15 +50,11 @@ public class CustomViewPager extends ViewPager{
         }
         else
             return super.onInterceptTouchEvent(ev);
-
-
-     //   Log.d("Position2",Integer.toString(getCurrentItem()));
-     //   return true;
+// Log.d("Position2",Integer.toString(getCurrentItem()));
+// return true;
     }
-
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
-
         float x = ev.getX();
         int dir = 0;
         Log.d("Event",MotionEvent.actionToString(ev.getAction()));
@@ -109,7 +93,6 @@ public class CustomViewPager extends ViewPager{
             Log.d("Position1.3", Integer.toString(getCurrentItem()));
             return super.onTouchEvent(ev);
         }
-
     }
 
     public void setEndPaging(boolean endPaging) {

@@ -10,8 +10,8 @@
 
     <WebView
         android:gravity="center"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:id="@+id/wvContentImage"
         android:scrollbars="none"
         android:layout_gravity="center"
@@ -36,6 +36,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:padding="7dp"
-        android:textAlignment="inherit"/>
+        android:textAlignment="inherit"
+        android:scrollbars = "vertical"/>
 </RelativeLayout>
 

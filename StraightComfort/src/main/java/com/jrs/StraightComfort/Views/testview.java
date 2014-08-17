@@ -1,16 +1,11 @@
 package com.jrs.StraightComfort.Views;
 
-import android.app.ActionBar;
 import android.app.Activity;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import com.jrs.StraightComfort.R;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 
 public class testview extends Activity {
 
