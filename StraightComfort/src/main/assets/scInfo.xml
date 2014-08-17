@@ -82,27 +82,27 @@
         <Icon>mouseicon</Icon>
         <Page>
             <Number>1</Number>
-            <Image>mouseicon1.png</Image>
+            <Image>mouseheight.png</Image>
             <Text>The mouse should be positioned at the same height as the keyboard, and as close as possible to reduce reaching.
             </Text>
         </Page>
 
         <Page>
             <Number>2</Number>
-            <Image>mouseicon2.png</Image>
+            <Image>mousegrip.png</Image>
             <Text>When using the mouse, your wrist should be straight and grip relaxed. Move the mouse using your arm and not your wrist.
             </Text>
         </Page>
 
         <Page>
             <Number>3</Number>
-            <Image>mouseicon3.png</Image>
+            <Image>mousewrist.png</Image>
             <Text>Avoid resting your wrist when using the mouse. Only use wrist supports during rest periods. If possible, remove your hand from the mouse entirely to promote micro-breaks.
             </Text>
         </Page>
         <Page>
             <Number>4</Number>
-            <Image>mouseicon4.png</Image>
+            <Image>mouserightleft.gif</Image>
             <Text>Alternate between right and left hand usage to reduce exposure and promote tissue recovery and use keyboard shortcuts when possible to minimize mouse use.
             </Text>
         </Page>
