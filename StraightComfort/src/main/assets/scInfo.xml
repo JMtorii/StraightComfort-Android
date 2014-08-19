@@ -114,39 +114,39 @@
         <Icon>monitoricon</Icon>
         <Page>
             <Number>1</Number>
-            <Image>monitoricon1.png</Image>
+            <Image>monitorheight.png</Image>
             <Text>Adjust the monitor height so that your line of sight falls within the top 2” of the screen.
             </Text>
         </Page>
 
         <Page>
             <Number>2</Number>
-            <Image>monitoricon2.png</Image>
+            <Image>monitordistance.png</Image>
             <Text>Adjust the monitor distance to about one arm’s length away.
             </Text>
         </Page>
 
         <Page>
             <Number>3</Number>
-            <Image>monitoricon3.png</Image>
+            <Image>monitoralignment.png</Image>
             <Text>Align the middle of your body with the “B” key, with the middle of the monitor.
             </Text>
         </Page>
         <Page>
             <Number>4</Number>
-            <Image>monitoricon4.png</Image>
+            <Image>monitorbifocals.png</Image>
             <Text>If you wear Bifocals, lower your monitor to a position that allows you to view the screen using neutral neck postures. Wearing specific computer glasses is another option when prolonged computer work is required.
             </Text>
         </Page>
         <Page>
             <Number>5</Number>
-            <Image>monitoricon5.png</Image>
+            <Image>monitorcrt.png</Image>
             <Text>Most CRT (old style) monitors are not height adjustable however the height can be raised using a riser or CPU. Alternatively, if the monitor is already on top of a CPU and is too high, lower the monitor to the desk surface to reduce the height.
             </Text>
         </Page>
         <Page>
             <Number>6</Number>
-            <Image>monitoricon6.png</Image>
+            <Image>monitorlaptop.png</Image>
             <Text>Laptop use: If you have a laptop at your workstation, consider using an external mouse and keyboard, and raising or mounting the laptop monitor to the appropriate height.
             </Text>
         </Page>
