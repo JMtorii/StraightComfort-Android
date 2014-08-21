@@ -6,20 +6,20 @@
         <Page>
             <Number>1</Number>
             <Image>chairheight.gif</Image>
-            <Text>We must adjust the chair to the proper height by using lever 1 as shown in the picture. The height of the chair  should be at an appropriate level so that your thighs are parallel to the floor as well as your feet flat on the ground.
+            <Text>We must adjust the chair to the proper height as shown in the picture. The height of the chair should be at an appropriate level so that your thighs are parallel to the floor and your feet are flat on the ground.
             </Text>
         </Page>
 
         <Page>
             <Number>2</Number>
             <Image>chairdepth.gif</Image>
-            <Text>If possible, the seat depth should be adjusted as well. It should be close enough to the backrest so that you can use its support and also leave 2 to 3 fingers’ space between the edge of the seat and the back of your knee.
+            <Text>If possible, the seat depth should be adjusted. It should be close enough to the backrest so that you can use its support and also leave two to three fingers’ space between the edge of the seat and the back of your knee.
             </Text>
         </Page>
         <Page>
             <Number>3</Number>
             <Image>backrestheight.gif</Image>
-            <Text>The backrest height should be adjusted so that its support fits the natural curve of your lumbar spine. Always try to remember to sit all the way back in your seat to use the support! Try not to sit on the edge of the seat while at your desk.
+            <Text>The backrest height should be adjusted so that its support fits the natural curve of your lumbar spine. Always try to remember to sit all the way back in your seat to use the support. Try not to sit on the edge of the seat while at your desk.
             </Text>
         </Page>
         <Page>
@@ -37,7 +37,7 @@
         <Page>
             <Number>5</Number>
             <Image>chairtilt.gif</Image>
-            <Text>The tilt of the chair seat should be parallel to the floor.
+            <Text>If available, the chair seat tilt should be parallel to the ground.
             </Text>
         </Page>
 
@@ -115,7 +115,7 @@
         <Page>
             <Number>1</Number>
             <Image>monitorheight.png</Image>
-            <Text>Adjust the monitor height so that your line of sight falls within the top 2” of the screen.
+            <Text>Adjust the monitor height so that the top of the screen is within 2 inches of your eye level. Your actual line of sight falls around 10 to 15 degrees under, therefore you will be able to maintain a neutral neck posture.
             </Text>
         </Page>
 
@@ -141,7 +141,7 @@
         <Page>
             <Number>5</Number>
             <Image>monitorcrt.png</Image>
-            <Text>Most CRT (old style) monitors are not height adjustable however the height can be raised using a riser or CPU. Alternatively, if the monitor is already on top of a CPU and is too high, lower the monitor to the desk surface to reduce the height.
+            <Text>Most CRT (old style) monitors are not height adjustable however the height can be raised using a riser or computer tower. Alternatively, if the monitor is already on top of a tower and is too high, lower the monitor to the desk surface to reduce the height.
             </Text>
         </Page>
         <Page>
@@ -187,8 +187,8 @@
         <Icon>oowaasicon</Icon>
         <Page>
             <Number>1</Number>
-            <Image>oowaasicon1.png</Image>
-            <Text>Position materials that you use frequently, or for long periods of time, within your primary reach zone, about forearms length away.
+            <Image>reachzones.png</Image>
+            <Text>Position materials that you use frequently, or for long periods of time, within your primary reach zone which is about a forearms length away.
             </Text>
         </Page>
 
