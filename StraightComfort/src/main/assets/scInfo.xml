@@ -163,20 +163,20 @@
 
         <Page>
             <Number>2</Number>
-            <Image>documentsicon2.png</Image>
+            <Image>slantboard.png</Image>
             <Text>The document holder or slant board should be placed on the desk surface directly in front of the monitor.
             </Text>
         </Page>
 
         <Page>
             <Number>3</Number>
-            <Image>documentsicon3.png</Image>
+            <Image>documentholder.png</Image>
             <Text>If space is limited, the holder can be located off to the left or right side of the monitor. Alternating between left and right sides is encouraged to promote tissue recovery.
             </Text>
         </Page>
         <Page>
             <Number>4</Number>
-            <Image>documentsicon4.png</Image>
+            <Image>tasklighting.png</Image>
             <Text>Task lighting: If you require additional lighting, ensure it is positioned below eye level to eliminate direct glare off documents or even the monitor.
             </Text>
         </Page>
@@ -194,30 +194,30 @@
 
         <Page>
             <Number>2</Number>
-            <Image>oowaasicon2.png</Image>
+            <Image>bookshelf.png</Image>
             <Text>Bookshelves are often loaded with heavy binders, charts and reference material. The heaviest and most frequently used binders should be placed on the shelves that require the least amount of reaching or bending.
             </Text>
         </Page>
 
         <Page>
             <Number>3</Number>
-            <Image>oowaasicon3.png</Image>
+            <Image>phone.png</Image>
             <Text>Position your telephone set on the side of your non dominant hand. Try using the phone with your non dominant hand so that you can use your dominant hand for other tasks such as writing.
             </Text>
         </Page>
         <Page>
             <Number>4</Number>
-            <Image>oowaasicon4.png</Image>
+            <Image>headset.png</Image>
             <Text>If you use your telephone for prolonged periods of time or if frequently typing simultaneously, consider use of a headset. This prevents the use of awkward neck and shoulder postures when talking on the phone and performing other tasks simultaneously (e.g. writing, typing)</Text>
         </Page>
         <Page>
             <Number>5</Number>
-            <Image>oowaasicon5.png</Image>
+            <Image>footclearance.png</Image>
             <Text>Ensure that there is adequate space for leg clearance, underneath your desk surface. Relocate garbage/recycling containers, boxes, or files, to another nearby area if possible.</Text>
         </Page>
         <Page>
             <Number>6</Number>
-            <Image>oowaasicon6.png</Image>
+            <Image>wires.png</Image>
             <Text>Wires: Ensure that all wires and extension cords are securely fastened and out of the way, to reduce the risk of tripping.</Text>
         </Page>
     </Shortcut>
