@@ -1,0 +1,36 @@
+for (SolutionInfo s: solutionFilter)
+	{
+		ArrayList<Page> contentPages = new ArrayList<Page>();
+		if (counter==0)
+		{
+			contentPages.add(new Page("INTRO", "INTRO", -1));
+		}
+		for (Content content: contentPages)
+		{
+			
+			if (content.getTitle()==s.getTitle()||s.getTitle()=="all")
+			{
+				for (Page p: content.getPages())
+				{
+					for (Integer i: s.getPages())
+					{
+						if (p.getPageNum() == i || i == "-1")
+						{
+							contentPages.add(p);
+						}
+					}
+				}
+				contentPages.add(new Page("LIFEISCRAP","LIFEISCRAP",-1));
+			}
+		}
+		
+		
+		if (counter==filter.size()-1)
+		{
+			contentPages.remove(contentPages.size()-1);
+			contentPages.add(new Page("LIFEISBETTER","LIFEISBETTER",-1));
+		}
+		
+		contents.add(contentPages);
+		counter++;
+	}
