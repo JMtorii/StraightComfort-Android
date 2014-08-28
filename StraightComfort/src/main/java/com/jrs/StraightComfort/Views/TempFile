@@ -1,36 +1,40 @@
-for (SolutionInfo s: solutionFilter)
+	ArrayList<Contents> filter = new ArrayList<Contents>();
+	ArrayList<Contents> contents = new ArrayList<Contents>();
+	ArrayList<ArrayList<String>> finalString = new ArrayList<ArrayList<String>>();
+	int counter1 = 0;
+	int counter2 = 0;
+	for (Contents f :filter)
 	{
-		ArrayList<Page> contentPages = new ArrayList<Page>();
-		if (counter==0)
+		
+
+		for (Contents t: contents)
 		{
-			contentPages.add(new Page("INTRO", "INTRO", -1));
-		}
-		for (Content content: contentPages)
-		{
+			ArrayList<String> eachOne = new ArrayList<String>();
 			
-			if (content.getTitle()==s.getTitle()||s.getTitle()=="all")
+			if (f.getTitle()==t.getTitle()||f.getTitle()=="all")
 			{
-				for (Page p: content.getPages())
+				if (counter1 == 0 && counter2 == 0)
 				{
-					for (Integer i: s.getPages())
+					eachOne.add("INTRO");
+				}
+				
+				for (String contentPages: t.getPages())
+				{
+					for (String filterPages: f.getPages())
 					{
-						if (p.getPageNum() == i || i == "-1")
+						if (filterPages == contentPages || filterPages == "-1")
 						{
-							contentPages.add(p);
+							eachOne.add(contentPages);
 						}
 					}
-				}
-				contentPages.add(new Page("LIFEISCRAP","LIFEISCRAP",-1));
+				}			
+				eachOne.add("In Between");	
+				finalString.add(eachOne);
+				counter2++;
 			}
+			
 		}
-		
-		
-		if (counter==filter.size()-1)
-		{
-			contentPages.remove(contentPages.size()-1);
-			contentPages.add(new Page("LIFEISBETTER","LIFEISBETTER",-1));
-		}
-		
-		contents.add(contentPages);
-		counter++;
+		counter1++;
+		counter2=0;
 	}
+		finalString.get(finalString.size()-1).set(finalString.get(finalString.size()-1).size()-1,"END");
