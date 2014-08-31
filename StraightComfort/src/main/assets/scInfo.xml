@@ -6,14 +6,14 @@
         <Page>
             <Number>1</Number>
             <Image>chairheight.gif</Image>
-            <Text>We must adjust the chair to the proper height by using lever 1 as shown in the picture. The height of the chair should be at an appropriate level so that your thighs are parallel to the floor as well as your feet flat on the ground.
+            <Text>We must adjust the chair to the proper height as shown in the picture. The height of the chair should be at an appropriate level so that your thighs are parallel to the floor and your feet are flat on the ground.
             </Text>
         </Page>
 
         <Page>
             <Number>2</Number>
             <Image>chairdepth.gif</Image>
-            <Text>If possible, the seat depth should be adjusted as well. It should be close enough to the backrest so that you can use its support and also leave 2 to 3 fingers’ space between the edge of the seat and the back of your knee.
+            <Text>If possible, the seat depth should be adjusted. It should be close enough to the backrest so that you can use its support and also leave two to three fingers’ space between the edge of the seat and the back of your knee.
             </Text>
         </Page>
         <Page>
@@ -116,7 +116,7 @@
         <Page>
             <Number>1</Number>
             <Image>monitorheight.png</Image>
-            <Text>Adjust the monitor height so that your line of sight falls within the top 2” of the screen.
+            <Text>Adjust the monitor height so that the top of the screen is within 2 inches of your eye level. Your actual line of sight falls around 10 to 15 degrees under, therefore you will be able to maintain a neutral neck posture.
             </Text>
         </Page>
 
@@ -142,7 +142,7 @@
         <Page>
             <Number>5</Number>
             <Image>monitorcrt.png</Image>
-            <Text>Most CRT (old style) monitors are not height adjustable however the height can be raised using a riser or CPU. Alternatively, if the monitor is already on top of a CPU and is too high, lower the monitor to the desk surface to reduce the height.
+            <Text>Most CRT (old style) monitors are not height adjustable however the height can be raised using a riser or computer tower. Alternatively, if the monitor is already on top of a tower and is too high, lower the monitor to the desk surface to reduce the height.
             </Text>
         </Page>
         <Page>
@@ -164,20 +164,20 @@
 
         <Page>
             <Number>2</Number>
-            <Image>documentsicon2.png</Image>
+            <Image>slantboard.png</Image>
             <Text>The document holder or slant board should be placed on the desk surface directly in front of the monitor.
             </Text>
         </Page>
 
         <Page>
             <Number>3</Number>
-            <Image>documentsicon3.png</Image>
+            <Image>documentholder.png</Image>
             <Text>If space is limited, the holder can be located off to the left or right side of the monitor. Alternating between left and right sides is encouraged to promote tissue recovery.
             </Text>
         </Page>
         <Page>
             <Number>4</Number>
-            <Image>documentsicon4.png</Image>
+            <Image>tasklighting.png</Image>
             <Text>Task lighting: If you require additional lighting, ensure it is positioned below eye level to eliminate direct glare off documents or even the monitor.
             </Text>
         </Page>
@@ -188,37 +188,37 @@
         <Icon>oowaasicon</Icon>
         <Page>
             <Number>1</Number>
-            <Image>oowaasicon1.png</Image>
-            <Text>Position materials that you use frequently, or for long periods of time, within your primary reach zone, about forearms length away.
+            <Image>reachzones.png</Image>
+            <Text>Position materials that you use frequently, or for long periods of time, within your primary reach zone which is about a forearms length away.
             </Text>
         </Page>
 
         <Page>
             <Number>2</Number>
-            <Image>oowaasicon2.png</Image>
+            <Image>bookshelf.png</Image>
             <Text>Bookshelves are often loaded with heavy binders, charts and reference material. The heaviest and most frequently used binders should be placed on the shelves that require the least amount of reaching or bending.
             </Text>
         </Page>
 
         <Page>
             <Number>3</Number>
-            <Image>oowaasicon3.png</Image>
+            <Image>phone.png</Image>
             <Text>Position your telephone set on the side of your non dominant hand. Try using the phone with your non dominant hand so that you can use your dominant hand for other tasks such as writing.
             </Text>
         </Page>
         <Page>
             <Number>4</Number>
-            <Image>oowaasicon4.png</Image>
+            <Image>headset.png</Image>
             <Text>If you use your telephone for prolonged periods of time or if frequently typing simultaneously, consider use of a headset. This prevents the use of awkward neck and shoulder postures when talking on the phone and performing other tasks simultaneously (e.g. writing, typing)</Text>
         </Page>
         <Page>
             <Number>5</Number>
-            <Image>oowaasicon5.png</Image>
+            <Image>footclearance.png</Image>
             <Text>Ensure that there is adequate space for leg clearance, underneath your desk surface. Relocate garbage/recycling containers, boxes, or files, to another nearby area if possible.</Text>
         </Page>
         <Page>
             <Number>6</Number>
-            <Image>oowaasicon6.png</Image>
+            <Image>wires.png</Image>
             <Text>Wires: Ensure that all wires and extension cords are securely fastened and out of the way, to reduce the risk of tripping.</Text>
         </Page>
     </Shortcut>
