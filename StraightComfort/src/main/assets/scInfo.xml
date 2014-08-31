@@ -6,7 +6,7 @@
         <Page>
             <Number>1</Number>
             <Image>chairheight.gif</Image>
-            <Text>We must adjust the chair to the proper height by using lever 1 as shown in the picture. The height of the chair  should be at an appropriate level so that your thighs are parallel to the floor as well as your feet flat on the ground.
+            <Text>We must adjust the chair to the proper height by using lever 1 as shown in the picture. The height of the chair should be at an appropriate level so that your thighs are parallel to the floor as well as your feet flat on the ground.
             </Text>
         </Page>
 
@@ -19,7 +19,7 @@
         <Page>
             <Number>3</Number>
             <Image>backrestheight.gif</Image>
-            <Text>The backrest height should be adjusted so that its support fits the natural curve of your lumbar spine. Always try to remember to sit all the way back in your seat to use the support! Try not to sit on the edge of the seat while at your desk.
+            <Text>The backrest height should be adjusted so that its support fits the natural curve of your lumbar spine. Always try to remember to sit all the way back in your seat to use the support. Try not to sit on the edge of the seat while at your desk.
             </Text>
         </Page>
         <Page>
@@ -29,17 +29,18 @@
             </Text>
         </Page>
         <Page>
-        <Number>5</Number>
+            <Number>5</Number>
+            <Image>chairtilt.gif</Image>
+            <Text>If available, the chair seat tilt should be parallel to the ground.
+            </Text>
+        </Page>
+        <Page>
+        <Number>6</Number>
         <Image>armrests.gif</Image>
         <Text>Armrests are recommended to be adjusted to the widest settings to avoid obstruction when using the keyboard or mouse.
         </Text>
     </Page>
-        <Page>
-            <Number>5</Number>
-            <Image>chairtilt.gif</Image>
-            <Text>The tilt of the chair seat should be parallel to the floor.
-            </Text>
-        </Page>
+
 
 
     </Shortcut>

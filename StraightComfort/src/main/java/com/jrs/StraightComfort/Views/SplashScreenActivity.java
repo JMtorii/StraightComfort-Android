@@ -32,12 +32,12 @@ public class SplashScreenActivity extends FilterActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent =null;
+                Intent intent = null;
                 SharedPreferences sharedPreferences = getSharedPreferences(Constants.PREFERENCES,0);
                 boolean firstUser = sharedPreferences.getBoolean("firstUser",true);
                 if (firstUser)
                 {
-                    intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                    intent = new Intent(SplashScreenActivity.this, WelcomePagerAdapter.class);
                 }
                 else {
                     intent = new Intent(SplashScreenActivity.this, MainActivity.class);

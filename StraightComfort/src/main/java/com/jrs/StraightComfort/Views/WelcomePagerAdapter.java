@@ -27,7 +27,7 @@ public class WelcomePagerAdapter extends FragmentActivity {
      * and next wizard steps.
      */
     private ViewPager mPager;
-
+    private String[] infoTexts;
     /**
      * The pager adapter, which provides the pages to the view pager widget.
      */
@@ -38,10 +38,17 @@ public class WelcomePagerAdapter extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_viewpager_layout);
 
+        infoTexts  = new String[5];
+
+        infoTexts[0] = "Part 1" ;
+        infoTexts[1] = "Part 2" ;
+        infoTexts[2] = "Part 3" ;
+        infoTexts[3] = "Part 4" ;
+        infoTexts[4] = "Part 5" ;
+
         // Instantiate a ViewPager and a PagerAdapter.
-        mPager = (ViewPager) findViewById(R.id.viewpager);
-        mPagerAdapter = new WelcomePagerAdapter2(getFragmentManager()) {
-        };
+        mPager = (ViewPager) findViewById(R.id.welcome_viewpager_layout);
+        mPagerAdapter = new WelcomePagerAdapter2(getFragmentManager()) {};
         mPager.setAdapter(mPagerAdapter);
         mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
@@ -54,24 +61,6 @@ public class WelcomePagerAdapter extends FragmentActivity {
             }
         });
     }
-/*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.activity_screen_slide, menu);
-
-        menu.findItem(R.id.action_previous).setEnabled(mPager.getCurrentItem() > 0);
-
-        // Add either a "next" or "finish" button to the action bar, depending on which page
-        // is currently selected.
-        MenuItem item = menu.add(Menu.NONE, R.id.action_next, Menu.NONE,
-                (mPager.getCurrentItem() == mPagerAdapter.getCount() - 1)
-                        ? R.string.action_finish
-                        : R.string.action_next);
-        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
-        return true;
-    }
-*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -79,50 +68,34 @@ public class WelcomePagerAdapter extends FragmentActivity {
             case android.R.id.home:
                 // Navigate "up" the demo structure to the launchpad activity.
                 // See http://developer.android.com/design/patterns/navigation.html for more.
-                NavUtils.navigateUpTo(this, new Intent(this, MainActivity.class));
-                return true;
-
-            case R.id.action_previous:
-                // Go to the previous step in the wizard. If there is no previous step,
-                // setCurrentItem will do nothing.
-                mPager.setCurrentItem(mPager.getCurrentItem() - 1);
-                return true;
-
-            case R.id.action_next:
-                // Advance to the next step in the wizard. If there is no next step, setCurrentItem
-                // will do nothing.
-                mPager.setCurrentItem(mPager.getCurrentItem() + 1);
+                onBackPressed();
                 return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+
+
     @Override
     public void onBackPressed() {
-        if (mPager.getCurrentItem() == 0) {
             // If the user is currently looking at the first step, allow the system to handle the
             // Back button. This calls finish() on this activity and pops the back stack.
             SharedPreferences sharedPreferences = getSharedPreferences(Constants.PREFERENCES,0);
             boolean firstUser = sharedPreferences.getBoolean("firstUser",true);
             if (!firstUser)
-            super.onBackPressed();
+                super.onBackPressed();
             else
             {
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                Intent intent = new Intent(getApplicationContext() ,MainActivity.class);
                 startActivity(intent);
-                firstUser = false;
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putBoolean("firstUser",firstUser);
+                editor.putBoolean("firstUser",false);
                 editor.commit();
                 this.finish();
 
             }
 
-        } else {
-            // Otherwise, select the previous step.
-            mPager.setCurrentItem(mPager.getCurrentItem() - 1);
-        }
     }
 
     /**
@@ -136,7 +109,7 @@ public class WelcomePagerAdapter extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return FragmentWelcome1.create(position);
+            return FragmentWelcome1.create(infoTexts[position]);
         }
 
         @Override

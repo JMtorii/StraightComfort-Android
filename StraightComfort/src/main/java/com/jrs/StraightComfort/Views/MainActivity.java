@@ -66,12 +66,7 @@ public class MainActivity extends Activity {
 
             }
         });
-      /*  WelcomeScreen.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                nextScreen = new Intent(getApplicationContext(), WelcomePagerAdapter.class);
-                startActivity(nextScreen);
-            }
-        });*/
+
     }
 
 
@@ -92,6 +87,11 @@ public class MainActivity extends Activity {
         if (id == R.id.action_settings) {
             return true;
         }
+        else if (id== R.id.action_welcomeScreen) {
+            Intent intent = new Intent(getApplicationContext(), WelcomePagerAdapter.class);
+            startActivity(intent);
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
