@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.jrs.StraightComfort.R;
 
@@ -28,10 +29,9 @@ public class FragmentWelcome1 extends Fragment {
     /** TODO: Rename and change types and number of parameters
 */
 
-    public static FragmentWelcome1 create(String text) {
+    public static FragmentWelcome1 create(int postion) {
         FragmentWelcome1 fragment = new FragmentWelcome1();
         Bundle args = new Bundle();
-        args.putString(ARG_PAGE, text);
         fragment.setArguments(args);
         return fragment;
     }
@@ -39,11 +39,7 @@ public class FragmentWelcome1 extends Fragment {
     public FragmentWelcome1() {
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,9 +47,10 @@ public class FragmentWelcome1 extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_viewpager_layout1, container, false);
 
         TextView viewText = ((TextView) rootView.findViewById(R.id.tvWelcomePageTitle));
-
+        ImageView viewImage = (ImageView) rootView.findViewById(R.id.ivWelcomePageView);
+        viewImage.setImageResource(R.drawable.nexus5home);
         viewText.setText(getArguments().getString(ARG_PAGE));
-
+        viewText.setText("Welcome\nWelcome to Straight Comfort! Use Straight Comfort to improve your workstation");
         return rootView;
 
 

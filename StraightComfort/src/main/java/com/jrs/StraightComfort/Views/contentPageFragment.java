@@ -55,27 +55,24 @@ public class contentPageFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater,ViewGroup container,
                              Bundle savedInstanceState) {
             ViewGroup rootView;
-
-
             rootView = (ViewGroup) inflater.inflate(R.layout.contentholder, container, false);
             rootView.refreshDrawableState();
+
             String iconResource = getArguments().getString(IMAGE_PAGE);
             String data = "<html><img src=\"" + iconResource + " \" align=\"middle\" width=\"98%\" height=\"98%\"></html>";
 
-           ((TextView) rootView.findViewById(R.id.tvContentText)).setText(getArguments().getString(TEXT_PAGE));
-
+            ((TextView) rootView.findViewById(R.id.tvContentText)).setText(getArguments().getString(TEXT_PAGE));
             WebView wv = ((WebView) rootView.findViewById(R.id.wvContentImage));
-            wv.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
 
             WebSettings settings = wv.getSettings();
             settings.setUseWideViewPort(true);
             settings.setSupportZoom(false);
             settings.setLoadWithOverviewMode(true);
-
+            settings.setLoadsImagesAutomatically(true);
+            settings.setCacheMode(WebSettings.LOAD_CACHE_ONLY);
             wv.loadDataWithBaseURL("file:///android_asset/drawable", data, "text/html", "UTF-8", null);
-
-
-        return rootView;
+            wv.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
+            return rootView;
     }
 
 

@@ -49,7 +49,7 @@ public class Discomfort extends FilterActivity {
 
     @Override
     public void onBackPressed() {
-        this.onDestroy();
+        this.finish();
         super.onBackPressed();
     }
 

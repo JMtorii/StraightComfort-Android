@@ -38,14 +38,7 @@ public class WorkstationSC extends FilterActivity {
         ArrayList<Content> shortCutsList = filterscData().getContents();
 
         ListView partsList = (ListView) findViewById(R.id.lvShortcuts);
-        //ArrayList<String[]> shortCutsList = new ArrayList<String[]>();
-        try {
-        //    for (Content content: contents) {
-          //      shortCutsList.add(new String[]{content.getTitle(),content.getIcon()});
-           // }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
 
         CustomAdapter listAdapter = new CustomAdapter(this, R.layout.bodypart_check, shortCutsList);
 

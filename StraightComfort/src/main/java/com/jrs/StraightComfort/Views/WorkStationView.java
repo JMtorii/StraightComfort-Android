@@ -5,9 +5,9 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v13.app.FragmentStatePagerAdapter;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -17,7 +17,6 @@ import com.jrs.StraightComfort.Utilities.DiscomfortInfo;
 import com.jrs.StraightComfort.Utilities.FilterActivity;
 import com.jrs.StraightComfort.Utilities.Page;
 import com.jrs.StraightComfort.Utilities.SolutionInfo;
-
 import java.util.ArrayList;
 
 /**
@@ -90,23 +89,21 @@ public class WorkStationView extends FilterActivity  {
         mPagerAdapter = new ScreenSlidePagerAdapter(getFragmentManager());
         mPager.setAdapter(mPagerAdapter);
         loadCurrentContent(mCurPos);
-
         mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+
 
             @Override
             public void onPageSelected(int position) {
-
-                if (mPager.getCurrentItem() == (mContentPages.get(mCurPos).size()-1)) {
+            try{
+                if (mPager.getCurrentItem() == (mContentPages.get(mCurPos).size() - 1)) {
                     TextView textView = (TextView) mPager.findViewById(R.id.tvButtonView);
-                    if (mCurPos == mContentPages.size()-1)
-                    {
+                    if (mCurPos == mContentPages.size() - 1) {
                         textView.setOnClickListener(new View.OnClickListener() {
                             public void onClick(View v) {
-                               onBackPressed();
+                                onBackPressed();
                             }
                         });
-                    }
-                    else {
+                    } else {
                         textView.setOnClickListener(new View.OnClickListener() {
                             public void onClick(View v) {
                                 mCurPos += 1;
@@ -115,8 +112,13 @@ public class WorkStationView extends FilterActivity  {
                             }
                         });
                     }
+                } else {
+                    super.onPageSelected(position);
                 }
-                 invalidateOptionsMenu();
+            }catch (Exception e)
+            {
+               Log.e("RIGHT HERe", e.toString());
+            }
             }
         });
 

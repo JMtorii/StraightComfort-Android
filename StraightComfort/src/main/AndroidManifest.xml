@@ -76,16 +76,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".Views.testview"
-            android:label="testview"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <!--    <action android:name="com.jrs.StraightComfort.Views.WorkStationView"></action> -->
-                <category android:name="android.intent.category.DEFAULT"></category>
-
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>
