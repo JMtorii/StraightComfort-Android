@@ -2,6 +2,12 @@
 <pre-dex-items>
 
     <item
+        dex="C:\Users\Steve_2\Desktop\Documents\Project\git\StraightComfort-Android\StraightComfort\build\intermediates\pre-dexed\debug\classes-266604718fe9d13c2d61c644aad629fa7922041f.jar"
+        jar="C:\Users\Steve_2\Desktop\Documents\Project\git\StraightComfort-Android\StraightComfort\build\intermediates\exploded-aar\com.viewpagerindicator\library\2.4.1\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="88e8e18d365173ad04a543d76c157e0b644f0b3f"/>
+    <item
         dex="C:\Users\Steve_2\Desktop\Documents\Project\git\StraightComfort-Android\StraightComfort\build\intermediates\pre-dexed\debug\support-v4-19.1.0-e311e493b238b75da4095bd5ee7b69d76d73dc42.jar"
         jar="C:\Program Files (x86)\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
         jumboMode="false"

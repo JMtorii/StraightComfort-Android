@@ -8,10 +8,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
+
+import com.viewpagerindicator.CirclePageIndicator;
 import com.jrs.StraightComfort.Utilities.Constants;
 import com.jrs.StraightComfort.R;
 
@@ -20,14 +21,14 @@ public class WelcomePagerAdapter extends FragmentActivity {
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
-    private static final int NUM_PAGES = 5;
+    private static final int NUM_PAGES = 4;
 
     /**
      * The pager widget, which handles animation and allows swiping horizontally to access previous
      * and next wizard steps.
      */
     private ViewPager mPager;
-    private String[] infoTexts;
+    private CirclePageIndicator titleIndicator;
     /**
      * The pager adapter, which provides the pages to the view pager widget.
      */
@@ -37,26 +38,23 @@ public class WelcomePagerAdapter extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_viewpager_layout);
-
-        infoTexts  = new String[5];
-
-        infoTexts[0] = "Part 1" ;
-        infoTexts[1] = "Part 2" ;
-        infoTexts[2] = "Part 3" ;
-        infoTexts[3] = "Part 4" ;
-        infoTexts[4] = "Part 5" ;
-
+        titleIndicator = (CirclePageIndicator)findViewById(R.id.indicator);
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.welcome_viewpager_layout);
         mPagerAdapter = new WelcomePagerAdapter2(getFragmentManager()) {};
         mPager.setAdapter(mPagerAdapter);
+        titleIndicator.setViewPager(mPager);
+        titleIndicator.setCurrentItem(mPagerAdapter.getCount()-1);
+        titleIndicator.setCurrentItem(0);
         mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
+                titleIndicator.setCurrentItem(position);
                 // When changing pages, reset the action bar actions since they are dependent
                 // on which page is currently active. An alternative approach is to have each
                 // fragment expose actions itself (rather than the activity exposing actions),
                 // but for simplicity, the activity provides the actions in this sample.
+
                 invalidateOptionsMenu();
             }
         });
@@ -109,7 +107,8 @@ public class WelcomePagerAdapter extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return FragmentWelcome1.create(infoTexts[position]);
+
+                return FragmentWelcome1.create(position);
         }
 
         @Override

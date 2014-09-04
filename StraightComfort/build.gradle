@@ -24,6 +24,10 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile "com.android.support:support-v13:19.1.+"
     compile files('libs/android-support-v13.jar')
+<<<<<<< HEAD
     compile 'com.viewpagerindicator:library:2.4.1'
 
+=======
+    compile 'com.viewpagerindicator:library:2.4.1@aar'
+>>>>>>> dee5e2572f59afd74d3c458486207c59a821a0a9
 }

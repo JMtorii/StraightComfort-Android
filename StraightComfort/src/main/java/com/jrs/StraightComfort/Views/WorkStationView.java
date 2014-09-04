@@ -17,6 +17,8 @@ import com.jrs.StraightComfort.Utilities.DiscomfortInfo;
 import com.jrs.StraightComfort.Utilities.FilterActivity;
 import com.jrs.StraightComfort.Utilities.Page;
 import com.jrs.StraightComfort.Utilities.SolutionInfo;
+import com.viewpagerindicator.CirclePageIndicator;
+
 import java.util.ArrayList;
 
 /**
@@ -25,6 +27,7 @@ import java.util.ArrayList;
 public class WorkStationView extends FilterActivity  {
     private ViewPager mPager;
     private PagerAdapter mPagerAdapter;
+    private CirclePageIndicator titleIndicator;
     private int numPages;
     private int mCurPos;
     private ArrayList<Page> showingPages = new ArrayList<Page>();
@@ -36,6 +39,8 @@ public class WorkStationView extends FilterActivity  {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.full_workstation);
+        titleIndicator = (CirclePageIndicator)findViewById(R.id.titles);
+
         Intent mIntent = getIntent();
         DiscomfortInfo filter = (DiscomfortInfo) mIntent.getSerializableExtra("filter");
         getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -88,14 +93,19 @@ public class WorkStationView extends FilterActivity  {
         mPager = (ViewPager) findViewById(R.id.full_workstation);
         mPagerAdapter = new ScreenSlidePagerAdapter(getFragmentManager());
         mPager.setAdapter(mPagerAdapter);
+        titleIndicator.setViewPager(mPager);
+        titleIndicator.setCurrentItem(mPagerAdapter.getCount()-1);
+        titleIndicator.setCurrentItem(0);
         loadCurrentContent(mCurPos);
+
         mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
 
 
             @Override
             public void onPageSelected(int position) {
             try{
-                if (mPager.getCurrentItem() == (mContentPages.get(mCurPos).size() - 1)) {
+                titleIndicator.setCurrentItem(position);
+                if (position == (mContentPages.get(mCurPos).size() - 1)) {
                     TextView textView = (TextView) mPager.findViewById(R.id.tvButtonView);
                     if (mCurPos == mContentPages.size() - 1) {
                         textView.setOnClickListener(new View.OnClickListener() {
@@ -107,7 +117,7 @@ public class WorkStationView extends FilterActivity  {
                         textView.setOnClickListener(new View.OnClickListener() {
                             public void onClick(View v) {
                                 mCurPos += 1;
-                                mPager.setCurrentItem(0);
+
                                 loadCurrentContent(mCurPos);
                             }
                         });
@@ -177,11 +187,16 @@ public class WorkStationView extends FilterActivity  {
 
     public void loadCurrentContent(int position)
     {
+        if (position==0)
+            mPager.setCurrentItem(1);
+        else
+            mPager.setCurrentItem(0);
         showingPages = mContentPages.get(position);
         numPages = showingPages.size();
         mPager.setOffscreenPageLimit(1);
         getActionBar().setTitle(actionBarTitles.get(position));
         mPagerAdapter.notifyDataSetChanged();
+        titleIndicator.setViewPager(mPager);
 
     }
 

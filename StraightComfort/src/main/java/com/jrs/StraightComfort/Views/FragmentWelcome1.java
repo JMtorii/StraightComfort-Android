@@ -32,6 +32,7 @@ public class FragmentWelcome1 extends Fragment {
     public static FragmentWelcome1 create(int postion) {
         FragmentWelcome1 fragment = new FragmentWelcome1();
         Bundle args = new Bundle();
+        args.putInt("PAGE",postion);
         fragment.setArguments(args);
         return fragment;
     }
@@ -45,14 +46,47 @@ public class FragmentWelcome1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_viewpager_layout1, container, false);
-
-        TextView viewText = ((TextView) rootView.findViewById(R.id.tvWelcomePageTitle));
+        TextView viewTextTitle = ((TextView) rootView.findViewById(R.id.tvWelcomePageTitle));
+        TextView viewTextContent = ((TextView) rootView.findViewById(R.id.tvContent));
+        TextView viewTextButton = ((TextView) rootView.findViewById(R.id.tvStartButton));
         ImageView viewImage = (ImageView) rootView.findViewById(R.id.ivWelcomePageView);
-        viewImage.setImageResource(R.drawable.nexus5home);
-        viewText.setText(getArguments().getString(ARG_PAGE));
-        viewText.setText("Welcome\nWelcome to Straight Comfort! Use Straight Comfort to improve your workstation");
-        return rootView;
 
+           if (getArguments().getInt("PAGE")==0){
+               viewImage.setImageResource(R.drawable.nexus5home);
+               viewTextTitle.setText("Welcome");
+               viewTextContent.setText("Welcome to Straight Comfort! Use Straight Comfort to improve your workstation");
+               viewTextButton.setText("");
+           }
+           else if (getArguments().getInt("PAGE")==1)
+           {
+               viewImage.setImageResource(R.drawable.nexus5workstation);
+               viewTextTitle.setText("Improve your entire workstation");
+               viewTextContent.setText("Go through the entire workstation setup to make your work life more comfortable");
+               viewTextButton.setText("");
+           }
+           else if (getArguments().getInt("PAGE")==2)
+           {
+               viewImage.setImageResource(R.drawable.nexus5shortcuts);
+               viewTextTitle.setText("Improve a certain component");
+               viewTextContent.setText("Don't want to go through the entire workstation setup? Improve just a specific workstation part");
+               viewTextButton.setText("");
+           }
+           else
+           {
+               viewImage.setImageResource(R.drawable.nexus5discomfort);
+               viewTextTitle.setText("Improve based on body part");
+               viewTextContent.setText("Does one of your body parts hurt while working? Filter your workstation solutions based on a certain body part");
+               viewTextButton.setText("Start");
+               viewTextButton.setVisibility(View.VISIBLE);
+
+               viewTextButton.setOnClickListener(new View.OnClickListener() {
+                   public void onClick(View v) {
+                        getActivity().onBackPressed();
+                   }
+               });
+           }
+
+        return rootView;
 
     }
 
