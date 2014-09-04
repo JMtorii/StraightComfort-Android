@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentManager;
+import android.text.method.ScrollingMovementMethod;
 import android.text.method.TextKeyListener;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -57,11 +58,13 @@ public class contentPageFragment extends Fragment{
             ViewGroup rootView;
             rootView = (ViewGroup) inflater.inflate(R.layout.contentholder, container, false);
             rootView.refreshDrawableState();
-
+            TextView textView = (TextView) rootView.findViewById(R.id.tvContentText);
             String iconResource = getArguments().getString(IMAGE_PAGE);
             String data = "<html><img src=\"" + iconResource + " \" align=\"middle\" width=\"98%\" height=\"98%\"></html>";
 
-            ((TextView) rootView.findViewById(R.id.tvContentText)).setText(getArguments().getString(TEXT_PAGE));
+            textView.setText(getArguments().getString(TEXT_PAGE));
+            textView.setMovementMethod(new ScrollingMovementMethod());
+
             WebView wv = ((WebView) rootView.findViewById(R.id.wvContentImage));
 
             WebSettings settings = wv.getSettings();
