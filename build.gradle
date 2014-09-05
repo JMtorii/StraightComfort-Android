@@ -15,7 +15,6 @@ allprojects {
     repositories {
         maven { url "http://dl.bintray.com/populov/maven" }
         mavenCentral()
-        maven { url "http://dl.bintray.com/populov/maven" }
     }
 
 }
