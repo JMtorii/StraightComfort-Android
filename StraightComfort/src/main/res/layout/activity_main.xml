@@ -9,20 +9,15 @@
     <TextView
         android:id="@+id/FullWorkStation"
         android:layout_width="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:background="@drawable/background"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:gravity="bottom"
         android:textColor="#0F99FF"
         android:text="@string/tv_FullWorkstation"
         android:textAllCaps="true"
         android:layout_weight="1.0"
         android:layout_height="100dp"
-        android:paddingBottom="45dp"
+        android:paddingBottom="15dp"
         android:textAlignment="center"
 
         android:paddingLeft="20dp" />
@@ -36,18 +31,16 @@
         android:layout_width="match_parent"
         android:layout_weight="1.0"
         android:textColor="#0F99FF"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+
         android:background="@drawable/background"
 
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:gravity="bottom"
         android:text="@string/tv_WorkstationSetup"
         android:textAllCaps="true"
 
         android:layout_height="100dp"
-        android:paddingBottom="45dp"
+        android:paddingBottom="15dp"
         android:textAlignment="center"
         android:paddingLeft="20dp" />
     <View
@@ -60,16 +53,15 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@drawable/background"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+
         android:text="@string/tv_Discomfort"
-        android:textSize="30dp"
+        android:textSize="30sp"
 
         android:gravity="bottom"
         android:textColor="#0F99FF"
         android:textAllCaps="true"
         android:layout_weight="1.0"
-        android:paddingBottom="70dp"
+        android:paddingBottom="30dp"
         android:paddingLeft="20dp" />
 
 

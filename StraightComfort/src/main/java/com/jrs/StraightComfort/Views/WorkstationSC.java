@@ -42,7 +42,8 @@ public class WorkstationSC extends FilterActivity {
 
         CustomAdapter listAdapter = new CustomAdapter(this, R.layout.bodypart_check, shortCutsList);
 
-        partsList.setAdapter(listAdapter); partsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        partsList.setAdapter(listAdapter);
+        partsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // When clicked, show a toast with the TextView text
@@ -51,7 +52,7 @@ public class WorkstationSC extends FilterActivity {
                 ArrayList<SolutionInfo> solutionInfos = new ArrayList<SolutionInfo>();
                 ArrayList<Integer> pagenumbers = new ArrayList<Integer>();
 
-                String title = content.getTitle().toString();
+                String title = content.getTitle();
 
                 pagenumbers.add(-1);
                 solutionInfos.add(new SolutionInfo(title,pagenumbers));

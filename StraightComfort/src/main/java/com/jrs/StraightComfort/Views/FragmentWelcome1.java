@@ -55,28 +55,27 @@ public class FragmentWelcome1 extends Fragment {
                viewImage.setImageResource(R.drawable.nexus5home);
                viewTextTitle.setText("Welcome");
                viewTextContent.setText("Welcome to Straight Comfort! Use Straight Comfort to improve your workstation");
-               viewTextButton.setText("");
+               viewTextButton.setVisibility(View.INVISIBLE);
            }
            else if (getArguments().getInt("PAGE")==1)
            {
                viewImage.setImageResource(R.drawable.nexus5workstation);
                viewTextTitle.setText("Improve your entire workstation");
                viewTextContent.setText("Go through the entire workstation setup to make your work life more comfortable");
-               viewTextButton.setText("");
+               viewTextButton.setVisibility(View.INVISIBLE);
            }
            else if (getArguments().getInt("PAGE")==2)
            {
                viewImage.setImageResource(R.drawable.nexus5shortcuts);
                viewTextTitle.setText("Improve a certain component");
                viewTextContent.setText("Don't want to go through the entire workstation setup? Improve just a specific workstation part");
-               viewTextButton.setText("");
+               viewTextButton.setVisibility(View.INVISIBLE);
            }
            else
            {
                viewImage.setImageResource(R.drawable.nexus5discomfort);
                viewTextTitle.setText("Improve based on body part");
                viewTextContent.setText("Does one of your body parts hurt while working? Filter your workstation solutions based on a certain body part");
-               viewTextButton.setText("Start");
                viewTextButton.setVisibility(View.VISIBLE);
 
                viewTextButton.setOnClickListener(new View.OnClickListener() {

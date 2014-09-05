@@ -4,7 +4,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:weightSum="1"
-    android:background="#E5E5E5">
+    android:background="#E5E5E5"
+    android:screenOrientation="portrait">
 
     <ImageView
         android:gravity="center"
@@ -19,7 +20,7 @@
         android:layout_alignParentTop="true" />
     <View
         android:layout_width="fill_parent"
-        android:layout_height="150dp"
+        android:layout_height="115dp"
         android:visibility="invisible"
 
         android:layout_centerVertical="true"
@@ -32,6 +33,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:weightSum="5"
+        android:background="@drawable/content_background"
         android:layout_below="@+id/view"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -63,16 +65,20 @@
             android:textIsSelectable="false"
         />
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:id="@+id/tvStartButton"
-            android:background="@drawable/content_background"
+            android:background="@drawable/background_bluetext"
             android:textColor="#ffffff"
             android:textSize="25sp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
             android:layout_weight="1"
             android:gravity="center"
+            android:layout_gravity="center"
             android:textAlignment="inherit"
             android:textIsSelectable="false"
+            android:text="@string/start"
         />
 
     </LinearLayout>
