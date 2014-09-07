@@ -1,50 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jrs.StraightComfort" >
+    package="com.jrs.StraightComfort">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/icon2"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/MyTheme"
+        android:screenOrientation="portrait"
+       >
         <activity
             android:name=".Views.SplashScreenActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <activity
             android:name=".Views.MainActivity"
-            android:label="@string/app_name" >
-        </activity>
-        <activity android:name=".Views.FullWorkStation"
-            android:label="">
-            <intent-filter>
-            <!--    <action android:name="com.jrs.StraightComfort.Views.FullWorkStation"></action> -->
-                <category android:name="android.intent.category.DEFAULT"></category>
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Views.WorkStationView"
+            android:label=""
+            android:screenOrientation="portrait">
 
-            </intent-filter>
-         </activity>
-        <activity android:name=".Views.Discomfort"
-            android:label="">
             <intent-filter>
-                <!--    <action android:name="com.jrs.StraightComfort.Views.FullWorkStation"></action> -->
+                <!--    <action android:name="com.jrs.StraightComfort.Views.WorkStationView"></action> -->
                 <category android:name="android.intent.category.DEFAULT"></category>
 
             </intent-filter>
         </activity>
-        <activity android:name=".Views.WorkstationSC"
-            android:label="">
+        <activity android:name=".Views.WelcomePagerAdapter"
+            android:label="Welcome"
+            android:parentActivityName=".Views.MainActivity"
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".Views.Discomfort"
+            android:label="Discomfort"
+            android:screenOrientation="portrait">
             <intent-filter>
-                <!--    <action android:name="com.jrs.StraightComfort.Views.FullWorkStation"></action> -->
+                <!--    <action android:name="com.jrs.StraightComfort.Views.WorkStationView"></action> -->
                 <category android:name="android.intent.category.DEFAULT"></category>
 
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Views.WorkstationSC"
+            android:label="Shortcuts"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <!--    <action android:name="com.jrs.StraightComfort.Views.WorkStationView"></action> -->
+                <category android:name="android.intent.category.DEFAULT"></category>
+
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Views.Solutions"
+            android:label="Possible Solutions"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <!--    <action android:name="com.jrs.StraightComfort.Views.WorkStationView"></action> -->
+                <category android:name="android.intent.category.DEFAULT"></category>
+
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

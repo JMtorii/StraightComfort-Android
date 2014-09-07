@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Discomfort>
+    <Bodypart>
+        <Bodypartname>Neck</Bodypartname>
+        <STag>
+            <Nametag>Monitor</Nametag>
+            <Page>-1</Page>
+        </STag>
+        <STag>
+            <Nametag>Documents</Nametag>
+            <Page>-1</Page>
+        </STag>
+    </Bodypart>
+    <Bodypart>
+        <Bodypartname>Upper back</Bodypartname>
+        <STag>
+            <Nametag>Keyboard Tray</Nametag>
+            <Page>1</Page>
+        </STag>
+    </Bodypart>
+    <Bodypart>
+        <Bodypartname>Lower back</Bodypartname>
+        <STag>
+            <Nametag>Chair</Nametag>
+            <Page>3</Page>
+        </STag>
+    </Bodypart>
+    <Bodypart>
+        <Bodypartname>Wrists</Bodypartname>
+        <STag>
+            <Nametag>Keyboard Tray</Nametag>
+            <Page>4</Page>
+        </STag>
+        <STag>
+            <Nametag>Mouse</Nametag>
+            <Page>-1</Page>
+        </STag>
+    </Bodypart>
+    <Bodypart>
+        <Bodypartname>Legs</Bodypartname>
+        <STag>
+            <Nametag>Chair</Nametag>
+            <Page>1</Page>
+            <Page>2</Page>
+        </STag>
+    </Bodypart>
+</Discomfort>

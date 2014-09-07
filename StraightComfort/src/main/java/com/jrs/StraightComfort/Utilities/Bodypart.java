@@ -1,44 +1,40 @@
 package com.jrs.StraightComfort.Utilities;
 
+import java.io.Serializable;
+
 /**
  * Created by Steve_2 on 2014-05-24.
  */
-public class Bodypart {
+public class Bodypart implements Serializable {
 
-    private String name = null;
-    private boolean checked = false;
+     String name = null;
+     boolean selected = false;
 
-    public Bodypart (String name, boolean checked){
+    public Bodypart(String name, boolean selected) {
         super();
         this.name = name;
-        this.checked = checked;
+        this.selected = selected;
     }
-    public Bodypart (String name)
-    {
+
+    public Bodypart(String name) {
         super();
         this.name = name;
-        this.checked = false;
+        this.selected = false;
     }
-    public Bodypart(String ... parts)
-    {
-        for (String part  : parts)
-           new Bodypart(part);
 
-    }
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
-    public void setName(String name)
-    {
-        this.name  = name;
+
+    public void setName(String name) {
+        this.name = name;
     }
-    public boolean isChecked()
-    {
-        return checked;
+
+    public boolean isSelected() {
+        return selected;
     }
-    public void setChecked(boolean checked)
-    {
-        this.checked = checked;
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 }
