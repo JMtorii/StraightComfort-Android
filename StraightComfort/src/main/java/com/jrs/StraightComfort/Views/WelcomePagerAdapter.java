@@ -7,26 +7,33 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
+<<<<<<< HEAD
 
 import com.jrs.StraightComfort.R;
 import com.jrs.StraightComfort.Utilities.Constants;
+=======
+
+import com.viewpagerindicator.CirclePageIndicator;
+import com.jrs.StraightComfort.Utilities.Constants;
+import com.jrs.StraightComfort.R;
+
+>>>>>>> ede83baceb581abba8ec58d68cfd97d3bb4a5f25
 
 public class WelcomePagerAdapter extends FragmentActivity {
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
-    private static final int NUM_PAGES = 5;
+    private static final int NUM_PAGES = 4;
 
     /**
      * The pager widget, which handles animation and allows swiping horizontally to access previous
      * and next wizard steps.
      */
     private ViewPager mPager;
-
+    private CirclePageIndicator titleIndicator;
     /**
      * The pager adapter, which provides the pages to the view pager widget.
      */
@@ -36,41 +43,27 @@ public class WelcomePagerAdapter extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_viewpager_layout);
-
+        titleIndicator = (CirclePageIndicator)findViewById(R.id.indicator);
         // Instantiate a ViewPager and a PagerAdapter.
-        mPager = (ViewPager) findViewById(R.id.viewpager);
-        mPagerAdapter = new WelcomePagerAdapter2(getFragmentManager()) {
-        };
+        mPager = (ViewPager) findViewById(R.id.welcome_viewpager_layout);
+        mPagerAdapter = new WelcomePagerAdapter2(getFragmentManager()) {};
         mPager.setAdapter(mPagerAdapter);
+        titleIndicator.setViewPager(mPager);
+        titleIndicator.setCurrentItem(mPagerAdapter.getCount()-1);
+        titleIndicator.setCurrentItem(0);
         mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
+                titleIndicator.setCurrentItem(position);
                 // When changing pages, reset the action bar actions since they are dependent
                 // on which page is currently active. An alternative approach is to have each
                 // fragment expose actions itself (rather than the activity exposing actions),
                 // but for simplicity, the activity provides the actions in this sample.
+
                 invalidateOptionsMenu();
             }
         });
     }
-/*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.activity_screen_slide, menu);
-
-        menu.findItem(R.id.action_previous).setEnabled(mPager.getCurrentItem() > 0);
-
-        // Add either a "next" or "finish" button to the action bar, depending on which page
-        // is currently selected.
-        MenuItem item = menu.add(Menu.NONE, R.id.action_next, Menu.NONE,
-                (mPager.getCurrentItem() == mPagerAdapter.getCount() - 1)
-                        ? R.string.action_finish
-                        : R.string.action_next);
-        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
-        return true;
-    }
-*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -78,50 +71,34 @@ public class WelcomePagerAdapter extends FragmentActivity {
             case android.R.id.home:
                 // Navigate "up" the demo structure to the launchpad activity.
                 // See http://developer.android.com/design/patterns/navigation.html for more.
-                NavUtils.navigateUpTo(this, new Intent(this, MainActivity.class));
-                return true;
-
-            case R.id.action_previous:
-                // Go to the previous step in the wizard. If there is no previous step,
-                // setCurrentItem will do nothing.
-                mPager.setCurrentItem(mPager.getCurrentItem() - 1);
-                return true;
-
-            case R.id.action_next:
-                // Advance to the next step in the wizard. If there is no next step, setCurrentItem
-                // will do nothing.
-                mPager.setCurrentItem(mPager.getCurrentItem() + 1);
+                onBackPressed();
                 return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+
+
     @Override
     public void onBackPressed() {
-        if (mPager.getCurrentItem() == 0) {
             // If the user is currently looking at the first step, allow the system to handle the
             // Back button. This calls finish() on this activity and pops the back stack.
             SharedPreferences sharedPreferences = getSharedPreferences(Constants.PREFERENCES,0);
             boolean firstUser = sharedPreferences.getBoolean("firstUser",true);
             if (!firstUser)
-            super.onBackPressed();
+                super.onBackPressed();
             else
             {
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                Intent intent = new Intent(getApplicationContext() ,MainActivity.class);
                 startActivity(intent);
-                firstUser = false;
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putBoolean("firstUser",firstUser);
+                editor.putBoolean("firstUser",false);
                 editor.commit();
                 this.finish();
 
             }
 
-        } else {
-            // Otherwise, select the previous step.
-            mPager.setCurrentItem(mPager.getCurrentItem() - 1);
-        }
     }
 
     /**
@@ -135,7 +112,8 @@ public class WelcomePagerAdapter extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return FragmentWelcome1.create(position);
+
+                return FragmentWelcome1.create(position);
         }
 
         @Override

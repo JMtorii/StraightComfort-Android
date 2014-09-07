@@ -1,5 +1,9 @@
 package com.jrs.StraightComfort.Views;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ede83baceb581abba8ec58d68cfd97d3bb4a5f25
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -37,18 +41,12 @@ public class WorkstationSC extends FilterActivity {
         ArrayList<Content> shortCutsList = filterscData().getContents();
 
         ListView partsList = (ListView) findViewById(R.id.lvShortcuts);
-        //ArrayList<String[]> shortCutsList = new ArrayList<String[]>();
-        try {
-        //    for (Content content: contents) {
-          //      shortCutsList.add(new String[]{content.getTitle(),content.getIcon()});
-           // }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
 
         CustomAdapter listAdapter = new CustomAdapter(this, R.layout.bodypart_check, shortCutsList);
 
-        partsList.setAdapter(listAdapter); partsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        partsList.setAdapter(listAdapter);
+        partsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // When clicked, show a toast with the TextView text
@@ -57,7 +55,7 @@ public class WorkstationSC extends FilterActivity {
                 ArrayList<SolutionInfo> solutionInfos = new ArrayList<SolutionInfo>();
                 ArrayList<Integer> pagenumbers = new ArrayList<Integer>();
 
-                String title = content.getTitle().toString();
+                String title = content.getTitle();
 
                 pagenumbers.add(-1);
                 solutionInfos.add(new SolutionInfo(title,pagenumbers));

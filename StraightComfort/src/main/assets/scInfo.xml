@@ -6,20 +6,20 @@
         <Page>
             <Number>1</Number>
             <Image>chairheight.gif</Image>
-            <Text>We must adjust the chair to the proper height by using lever 1 as shown in the picture. The height of the chair  should be at an appropriate level so that your thighs are parallel to the floor as well as your feet flat on the ground.
+            <Text>We must adjust the chair to the proper height as shown in the picture. The height of the chair should be at an appropriate level so that your thighs are parallel to the floor and your feet are flat on the ground.
             </Text>
         </Page>
 
         <Page>
             <Number>2</Number>
             <Image>chairdepth.gif</Image>
-            <Text>If possible, the seat depth should be adjusted as well. It should be close enough to the backrest so that you can use its support and also leave 2 to 3 fingers’ space between the edge of the seat and the back of your knee.
+            <Text>If possible, the seat depth should be adjusted. It should be close enough to the backrest so that you can use its support and also leave two to three fingers’ space between the edge of the seat and the back of your knee.
             </Text>
         </Page>
         <Page>
             <Number>3</Number>
             <Image>backrestheight.gif</Image>
-            <Text>The backrest height should be adjusted so that its support fits the natural curve of your lumbar spine. Always try to remember to sit all the way back in your seat to use the support! Try not to sit on the edge of the seat while at your desk.
+            <Text>The backrest height should be adjusted so that its support fits the natural curve of your lumbar spine. Always try to remember to sit all the way back in your seat to use the support. Try not to sit on the edge of the seat while at your desk.
             </Text>
         </Page>
         <Page>
@@ -29,17 +29,18 @@
             </Text>
         </Page>
         <Page>
-        <Number>5</Number>
-        <Image>armrests.gif</Image>
-        <Text>Armrests are recommended to be adjusted to the widest settings to avoid obstruction when using the keyboard or mouse.
-        </Text>
-    </Page>
-        <Page>
             <Number>5</Number>
             <Image>chairtilt.gif</Image>
-            <Text>The tilt of the chair seat should be parallel to the floor.
+            <Text>If available, the chair seat tilt should be parallel to the ground.
             </Text>
         </Page>
+        <Page>
+            <Number>6</Number>
+            <Image>armrests.gif</Image>
+            <Text>Armrests are recommended to be adjusted to the widest settings to avoid obstruction when using the keyboard or mouse.
+            </Text>
+        </Page>
+
 
 
     </Shortcut>
@@ -50,27 +51,27 @@
         <Icon>keyboardtrayicon</Icon>
         <Page>
             <Number>1</Number>
-            <Image>keyboardHeight.gif</Image>
+            <Image>keyboardtrayupdown.gif</Image>
             <Text>To obtain the correct working height, adjust the keyboard tray up or down so that your wrists are straight, forearms are parallel to the floor, and your palms are facing down.
             </Text>
         </Page>
 
         <Page>
             <Number>2</Number>
-            <Image>keyboardtrayicon1.png</Image>
+            <Image>kbtarmsandshoulders.png</Image>
             <Text>Your arms and shoulders should be relaxed, with your elbows at your side.
             </Text>
         </Page>
 
         <Page>
             <Number>3</Number>
-            <Image>keyboardtrayicon2.png</Image>
+            <Image>kbtkbondesk.png</Image>
             <Text>If the keyboard and mouse are located on the desk surface, adjust the chair height until your arms are parallel to the floor and your wrists are straight. You may require a footrest to support your legs and feet if they are no longer supported by the floor.
             </Text>
         </Page>
         <Page>
             <Number>4</Number>
-            <Image>keyboardtrayicon3.png</Image>
+            <Image>kbtwristyesno.gif</Image>
             <Text>Avoid resting your wrists while typing. Only use wrist supports during rest periods. If possible, remove your hands from the keyboard entirely to promote micro-breaks. Make sure to place the support under your palms and not your wrists.
             </Text>
         </Page>
@@ -82,27 +83,27 @@
         <Icon>mouseicon</Icon>
         <Page>
             <Number>1</Number>
-            <Image>mouseicon1.png</Image>
+            <Image>mouseheight.png</Image>
             <Text>The mouse should be positioned at the same height as the keyboard, and as close as possible to reduce reaching.
             </Text>
         </Page>
 
         <Page>
             <Number>2</Number>
-            <Image>mouseicon2.png</Image>
+            <Image>mousegrip.png</Image>
             <Text>When using the mouse, your wrist should be straight and grip relaxed. Move the mouse using your arm and not your wrist.
             </Text>
         </Page>
 
         <Page>
             <Number>3</Number>
-            <Image>mouseicon3.png</Image>
+            <Image>mousewrist.png</Image>
             <Text>Avoid resting your wrist when using the mouse. Only use wrist supports during rest periods. If possible, remove your hand from the mouse entirely to promote micro-breaks.
             </Text>
         </Page>
         <Page>
             <Number>4</Number>
-            <Image>mouseicon4.png</Image>
+            <Image>mouserightleft.gif</Image>
             <Text>Alternate between right and left hand usage to reduce exposure and promote tissue recovery and use keyboard shortcuts when possible to minimize mouse use.
             </Text>
         </Page>
@@ -114,39 +115,39 @@
         <Icon>monitoricon</Icon>
         <Page>
             <Number>1</Number>
-            <Image>monitoricon1.png</Image>
-            <Text>Adjust the monitor height so that your line of sight falls within the top 2” of the screen.
+            <Image>monitorheight.png</Image>
+            <Text>Adjust the monitor height so that the top of the screen is within 2 inches of your eye level. Your actual line of sight falls around 10 to 15 degrees under, therefore you will be able to maintain a neutral neck posture.
             </Text>
         </Page>
 
         <Page>
             <Number>2</Number>
-            <Image>monitoricon2.png</Image>
+            <Image>monitordistance.png</Image>
             <Text>Adjust the monitor distance to about one arm’s length away.
             </Text>
         </Page>
 
         <Page>
             <Number>3</Number>
-            <Image>monitoricon3.png</Image>
+            <Image>monitoralignment.png</Image>
             <Text>Align the middle of your body with the “B” key, with the middle of the monitor.
             </Text>
         </Page>
         <Page>
             <Number>4</Number>
-            <Image>monitoricon4.png</Image>
+            <Image>monitorbifocals.png</Image>
             <Text>If you wear Bifocals, lower your monitor to a position that allows you to view the screen using neutral neck postures. Wearing specific computer glasses is another option when prolonged computer work is required.
             </Text>
         </Page>
         <Page>
             <Number>5</Number>
-            <Image>monitoricon5.png</Image>
-            <Text>Most CRT (old style) monitors are not height adjustable however the height can be raised using a riser or CPU. Alternatively, if the monitor is already on top of a CPU and is too high, lower the monitor to the desk surface to reduce the height.
+            <Image>monitorcrt.png</Image>
+            <Text>Most CRT (old style) monitors are not height adjustable however the height can be raised using a riser or computer tower. Alternatively, if the monitor is already on top of a tower and is too high, lower the monitor to the desk surface to reduce the height.
             </Text>
         </Page>
         <Page>
             <Number>6</Number>
-            <Image>monitoricon6.png</Image>
+            <Image>monitorlaptop.png</Image>
             <Text>Laptop use: If you have a laptop at your workstation, consider using an external mouse and keyboard, and raising or mounting the laptop monitor to the appropriate height.
             </Text>
         </Page>
@@ -163,20 +164,20 @@
 
         <Page>
             <Number>2</Number>
-            <Image>documentsicon2.png</Image>
+            <Image>slantboard.png</Image>
             <Text>The document holder or slant board should be placed on the desk surface directly in front of the monitor.
             </Text>
         </Page>
 
         <Page>
             <Number>3</Number>
-            <Image>documentsicon3.png</Image>
+            <Image>documentholder.png</Image>
             <Text>If space is limited, the holder can be located off to the left or right side of the monitor. Alternating between left and right sides is encouraged to promote tissue recovery.
             </Text>
         </Page>
         <Page>
             <Number>4</Number>
-            <Image>documentsicon4.png</Image>
+            <Image>tasklighting.png</Image>
             <Text>Task lighting: If you require additional lighting, ensure it is positioned below eye level to eliminate direct glare off documents or even the monitor.
             </Text>
         </Page>
@@ -187,37 +188,37 @@
         <Icon>oowaasicon</Icon>
         <Page>
             <Number>1</Number>
-            <Image>oowaasicon1.png</Image>
-            <Text>Position materials that you use frequently, or for long periods of time, within your primary reach zone, about forearms length away.
+            <Image>reachzones.png</Image>
+            <Text>Position materials that you use frequently, or for long periods of time, within your primary reach zone which is about a forearms length away.
             </Text>
         </Page>
 
         <Page>
             <Number>2</Number>
-            <Image>oowaasicon2.png</Image>
+            <Image>bookshelf.png</Image>
             <Text>Bookshelves are often loaded with heavy binders, charts and reference material. The heaviest and most frequently used binders should be placed on the shelves that require the least amount of reaching or bending.
             </Text>
         </Page>
 
         <Page>
             <Number>3</Number>
-            <Image>oowaasicon3.png</Image>
+            <Image>phone.png</Image>
             <Text>Position your telephone set on the side of your non dominant hand. Try using the phone with your non dominant hand so that you can use your dominant hand for other tasks such as writing.
             </Text>
         </Page>
         <Page>
             <Number>4</Number>
-            <Image>oowaasicon4.png</Image>
+            <Image>headset.png</Image>
             <Text>If you use your telephone for prolonged periods of time or if frequently typing simultaneously, consider use of a headset. This prevents the use of awkward neck and shoulder postures when talking on the phone and performing other tasks simultaneously (e.g. writing, typing)</Text>
         </Page>
         <Page>
             <Number>5</Number>
-            <Image>oowaasicon5.png</Image>
+            <Image>footclearance.png</Image>
             <Text>Ensure that there is adequate space for leg clearance, underneath your desk surface. Relocate garbage/recycling containers, boxes, or files, to another nearby area if possible.</Text>
         </Page>
         <Page>
             <Number>6</Number>
-            <Image>oowaasicon6.png</Image>
+            <Image>wires.png</Image>
             <Text>Wires: Ensure that all wires and extension cords are securely fastened and out of the way, to reduce the risk of tripping.</Text>
         </Page>
     </Shortcut>

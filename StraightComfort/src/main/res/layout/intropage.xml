@@ -4,10 +4,10 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
+    android:gravity="center_vertical"
     android:background="#FFFFFF">
 
     <TextView
-        android:paddingTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Let's improve\n your workstation!"
@@ -30,5 +30,5 @@
         android:layout_width="match_parent"
         android:layout_height="201dp"
         android:id="@+id/wvIntroview"
-        android:layout_weight="0.95" />
+        android:layout_weight="0.45" />
 </LinearLayout>

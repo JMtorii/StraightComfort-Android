@@ -82,6 +82,7 @@
             </intent-filter>
         </activity>
 
+<<<<<<< HEAD
         <activity
             android:name=".Views.testview"
             android:label="testview"
@@ -91,6 +92,9 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+=======
+    </application>
+>>>>>>> ede83baceb581abba8ec58d68cfd97d3bb4a5f25
 
     </application>
 </manifest>
