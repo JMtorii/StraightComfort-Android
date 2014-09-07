@@ -20,7 +20,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
 
 public class SplashScreenActivity extends FilterActivity {
-    private static final int TIME = 4 * 1000;// 4 seconds
+    private static final int TIME = 3 * 1000;// 4 seconds
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
