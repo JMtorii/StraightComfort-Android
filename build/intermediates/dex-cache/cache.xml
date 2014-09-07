@@ -2,6 +2,10 @@
 <pre-dex-items>
 
     <item
+<<<<<<< HEAD
+        dex="/Users/mtorii/Documents/Project/StraightComfort-Android/StraightComfort/build/intermediates/pre-dexed/debug/support-v13-19.1.0-c81884c7d79ac347dc7fb1cd2448010abfd9d47b.jar"
+        jar="/Users/mtorii/Documents/IMPORTANT/android-sdk-macosx/extras/android/m2repository/com/android/support/support-v13/19.1.0/support-v13-19.1.0.jar"
+=======
         dex="C:\Users\Ryan\Desktop\JRSproject\stevesSCversion\StraightComfort-Android\StraightComfort\build\intermediates\pre-dexed\debug\classes-48ec06e024225d5bdd4c6a2c3908a17b5c3013e6.jar"
         jar="C:\Users\Ryan\Desktop\JRSproject\stevesSCversion\StraightComfort-Android\StraightComfort\build\intermediates\exploded-aar\com.viewpagerindicator\library\2.4.1\classes.jar"
         jumboMode="false"
@@ -10,14 +14,20 @@
     <item
         dex="C:\Users\Ryan\Desktop\JRSproject\stevesSCversion\StraightComfort-Android\StraightComfort\build\intermediates\pre-dexed\debug\support-v4-19.1.0-44d4d7c4987d396e09e3b9e100d62ee812294642.jar"
         jar="C:\Users\Ryan\AppData\Local\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
-    <item
-        dex="C:\Users\Ryan\Desktop\JRSproject\stevesSCversion\StraightComfort-Android\StraightComfort\build\intermediates\pre-dexed\debug\support-v13-19.1.0-61b3673c02496a3f5bd9c25fd7c8735e80e0bd84.jar"
-        jar="C:\Users\Ryan\AppData\Local\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-v13\19.1.0\support-v13-19.1.0.jar"
+>>>>>>> ede83baceb581abba8ec58d68cfd97d3bb4a5f25
         jumboMode="false"
         revision="19.1.0"
         sha1="6b852a232f642c75a7fdfc7212b841b8c8f8959c"/>
+    <item
+<<<<<<< HEAD
+        dex="/Users/mtorii/Documents/Project/StraightComfort-Android/StraightComfort/build/intermediates/pre-dexed/debug/support-v4-19.1.0-40d52be6229201794a833f532f68f9758677202c.jar"
+        jar="/Users/mtorii/Documents/IMPORTANT/android-sdk-macosx/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
+=======
+        dex="C:\Users\Ryan\Desktop\JRSproject\stevesSCversion\StraightComfort-Android\StraightComfort\build\intermediates\pre-dexed\debug\support-v13-19.1.0-61b3673c02496a3f5bd9c25fd7c8735e80e0bd84.jar"
+        jar="C:\Users\Ryan\AppData\Local\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-v13\19.1.0\support-v13-19.1.0.jar"
+>>>>>>> ede83baceb581abba8ec58d68cfd97d3bb4a5f25
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
 
 </pre-dex-items>

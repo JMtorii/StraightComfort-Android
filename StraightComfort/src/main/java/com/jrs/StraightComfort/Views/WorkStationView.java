@@ -6,18 +6,27 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
+<<<<<<< HEAD
+import android.view.View;
+import android.widget.TextView;
+
+=======
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+>>>>>>> ede83baceb581abba8ec58d68cfd97d3bb4a5f25
 import com.jrs.StraightComfort.R;
 import com.jrs.StraightComfort.Utilities.Content;
+import com.jrs.StraightComfort.Utilities.CustomViewPager;
 import com.jrs.StraightComfort.Utilities.DiscomfortInfo;
 import com.jrs.StraightComfort.Utilities.FilterActivity;
 import com.jrs.StraightComfort.Utilities.Page;
 import com.jrs.StraightComfort.Utilities.SolutionInfo;
+<<<<<<< HEAD
+=======
 import com.viewpagerindicator.CirclePageIndicator;
+>>>>>>> ede83baceb581abba8ec58d68cfd97d3bb4a5f25
 
 import java.util.ArrayList;
 

@@ -1,8 +1,5 @@
 package com.jrs.StraightComfort.Utilities;
 
-import com.jrs.StraightComfort.Views.Discomfort;
-import com.jrs.StraightComfort.Views.Solutions;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 

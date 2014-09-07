@@ -1,6 +1,9 @@
 package com.jrs.StraightComfort.Views;
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> ede83baceb581abba8ec58d68cfd97d3bb4a5f25
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;

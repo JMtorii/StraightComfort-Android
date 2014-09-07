@@ -2,7 +2,6 @@ package com.jrs.StraightComfort.Views;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,11 +10,17 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
+<<<<<<< HEAD
+
+import com.jrs.StraightComfort.R;
+import com.jrs.StraightComfort.Utilities.Constants;
+=======
 
 import com.viewpagerindicator.CirclePageIndicator;
 import com.jrs.StraightComfort.Utilities.Constants;
 import com.jrs.StraightComfort.R;
 
+>>>>>>> ede83baceb581abba8ec58d68cfd97d3bb4a5f25
 
 public class WelcomePagerAdapter extends FragmentActivity {
     /**

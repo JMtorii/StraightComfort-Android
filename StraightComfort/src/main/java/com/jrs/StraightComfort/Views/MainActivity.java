@@ -32,10 +32,9 @@ public class MainActivity extends Activity {
         Discomfort = (TextView) findViewById(R.id.Discomfort);
        // WelcomeScreen = (TextView) findViewById(R.id.tvTitle);
 
-
         FullSetupBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DiscomfortInfo solutions = null;
+                DiscomfortInfo solutions;
                 ArrayList<SolutionInfo> solutionInfos = new ArrayList<SolutionInfo>();
                 ArrayList<Integer> pagenumbers = new ArrayList<Integer>();
 

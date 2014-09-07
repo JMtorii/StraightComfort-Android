@@ -1,6 +1,9 @@
 package com.jrs.StraightComfort.Views;
 
 import android.app.Fragment;
+<<<<<<< HEAD
+import android.os.Bundle;
+=======
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,20 +12,28 @@ import android.support.v4.app.FragmentManager;
 import android.text.method.ScrollingMovementMethod;
 import android.text.method.TextKeyListener;
 import android.util.Log;
+>>>>>>> ede83baceb581abba8ec58d68cfd97d3bb4a5f25
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+<<<<<<< HEAD
+=======
 import android.widget.LinearLayout;
+>>>>>>> ede83baceb581abba8ec58d68cfd97d3bb4a5f25
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.jrs.StraightComfort.R;
+<<<<<<< HEAD
+import com.jrs.StraightComfort.Utilities.Page;
+=======
 import com.jrs.StraightComfort.Utilities.Constants;
 import com.jrs.StraightComfort.Utilities.Page;
 
 import java.util.ArrayList;
+>>>>>>> ede83baceb581abba8ec58d68cfd97d3bb4a5f25
 
 /**
  * Created by Steve_2 on 2014-06-29.
