@@ -3,7 +3,8 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF">
 
     <ListView
         android:id="@+id/lvAnalyze"
@@ -30,7 +31,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:background="#0F99FF"
+        android:background="@drawable/background_bluetext"
         android:layout_alignParentStart="true"
         android:textColor="#FFFFFF"
         android:text="@string/tv_analyze"
