@@ -3,42 +3,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_vertical"
 
-    android:weightSum="1"
+    android:weightSum="10"
     android:background="#FFFFFF"
     android:clickable="false"
     android:id="@+id/lllifeisbetter"
     >
 
     <TextView
-        android:paddingTop="120dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""
         android:textSize="35sp"
-        android:gravity="center"
+        android:gravity="bottom|center_horizontal"
+        android:layout_weight="4.5"
         android:fontFamily="sans-serif-thin"
         android:id="@+id/tvBetter" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="20dp"
         android:text="We made your workstation a \nbit better :)"
         android:gravity="center"
         android:textSize="20sp"
         android:textColor="#AAAAAA"
+        android:layout_weight="2"
         android:id="@+id/tvLifebetter" />
 
     <TextView
-        android:layout_marginTop="100dp"
         android:layout_width="match_parent"
-        android:layout_height="105dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="35sp"
         android:background="@drawable/background"
         android:textColor="#0F99FF"
+        android:layout_weight="3.5"
         android:id="@+id/tvButtonView"
         />
 </LinearLayout>

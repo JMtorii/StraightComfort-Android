@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ListView;
@@ -14,8 +15,10 @@ import android.widget.Toast;
 
 import com.jrs.StraightComfort.R;
 import com.jrs.StraightComfort.Utilities.Bodypart;
+import com.jrs.StraightComfort.Utilities.Content;
 import com.jrs.StraightComfort.Utilities.DiscomfortInfo;
 import com.jrs.StraightComfort.Utilities.FilterActivity;
+import com.jrs.StraightComfort.Utilities.SolutionInfo;
 
 import java.util.ArrayList;
 
@@ -43,7 +46,14 @@ public class Discomfort extends FilterActivity {
         ListView listView = (ListView) findViewById(R.id.lvAnalyze);
         // Assign adapter to ListView
         listView.setAdapter(dataAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                CheckBox cb = (CheckBox) view.findViewById(R.id.cbBPname);
+                cb.performClick();
 
+            }
+        });
     }
 
 
